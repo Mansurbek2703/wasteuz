@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, ChevronDown, User, LogIn, Sparkles } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, LogIn, Sparkles } from 'lucide-react';
 
 export default function Navbar({ lang, setLang, t }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +31,7 @@ export default function Navbar({ lang, setLang, t }) {
     <header className="sticky top-0 z-50 bg-white shadow-xs border-b border-slate-200">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
         
-        {/* LEFT: Project Logo + Official EU Co-funded Flag Emblem (Exact greenengine style) */}
+        {/* LEFT: Project Logo + Official EU Flag Emblem (greenengine.uz layout) */}
         <div className="flex items-center gap-3 sm:gap-5 flex-shrink-0">
           {/* Main Logo */}
           <Link to="/" className="flex items-center gap-2 group">
@@ -42,25 +42,13 @@ export default function Navbar({ lang, setLang, t }) {
             />
           </Link>
 
-          {/* EU Co-funded by Erasmus+ Emblem (as shown in image) */}
+          {/* Official EU Emblem with Exact Flag of Europe */}
           <div className="flex items-center gap-2.5 pl-3 border-l border-slate-200/90 py-1">
-            {/* European Flag with 12 stars */}
-            <div className="w-9 h-6 sm:w-10 sm:h-6.5 bg-[#003399] rounded-[2px] flex items-center justify-center relative overflow-hidden shadow-2xs flex-shrink-0">
-              <svg viewBox="0 0 100 66" className="w-full h-full p-0.5">
-                <circle cx="50" cy="12" r="3" fill="#FFCC00" />
-                <circle cx="69" cy="17" r="3" fill="#FFCC00" />
-                <circle cx="81" cy="33" r="3" fill="#FFCC00" />
-                <circle cx="81" cy="50" r="3" fill="#FFCC00" />
-                <circle cx="69" cy="61" r="3" fill="#FFCC00" />
-                <circle cx="50" cy="65" r="3" fill="#FFCC00" />
-                <circle cx="31" cy="61" r="3" fill="#FFCC00" />
-                <circle cx="19" cy="50" r="3" fill="#FFCC00" />
-                <circle cx="19" cy="33" r="3" fill="#FFCC00" />
-                <circle cx="31" cy="17" r="3" fill="#FFCC00" />
-              </svg>
-            </div>
-
-            {/* Official EU Typography */}
+            <img
+              src="/eu-flag.svg"
+              alt="Flag of the European Union"
+              className="w-9 h-6 sm:w-10 sm:h-6.5 object-cover rounded-[2px] shadow-2xs flex-shrink-0 border border-blue-950"
+            />
             <div className="flex flex-col text-[10px] sm:text-[11px] font-semibold text-[#003399] leading-[1.15] tracking-tight select-none">
               <span>Co-funded by the</span>
               <span className="font-bold">Erasmus+ Programme</span>
@@ -69,7 +57,7 @@ export default function Navbar({ lang, setLang, t }) {
           </div>
         </div>
 
-        {/* CENTER / RIGHT: Navigation Items (exact greenengine style) */}
+        {/* CENTER / RIGHT: Navigation Items */}
         <nav className="hidden xl:flex items-center gap-1.5 lg:gap-2 text-[14px] font-medium text-slate-700">
           {/* Home as Green Pill */}
           <NavLink
@@ -228,7 +216,7 @@ export default function Navbar({ lang, setLang, t }) {
           </NavLink>
         </nav>
 
-        {/* RIGHT: Language Toggle + Login Button (NOT "Admin") */}
+        {/* RIGHT: Language Toggle + Login Button */}
         <div className="flex items-center gap-2.5">
           {/* Language Switcher */}
           <button
@@ -240,7 +228,7 @@ export default function Navbar({ lang, setLang, t }) {
             <span>{lang === 'en' ? "UZ" : "EN"}</span>
           </button>
 
-          {/* Clean Login Button */}
+          {/* Login Button */}
           <Link
             to="/login"
             className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200 hover:border-[#1b6b37] hover:text-[#1b6b37] text-slate-700 transition font-semibold text-xs bg-slate-50/80 shadow-2xs"

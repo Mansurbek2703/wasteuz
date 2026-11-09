@@ -28,14 +28,17 @@ export default function Footer({ t, lang, partners }) {
               Waste Awareness Skills Training & Education — Uzbekistan. Fostering smart waste management competencies, circular economy skills, and student innovation across Uzbekistan and Europe.
             </p>
 
-            {/* EU Co-funded Flag Box */}
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 max-w-sm">
-              <div className="w-10 h-7 bg-[#003399] rounded-xs flex items-center justify-center relative overflow-hidden flex-shrink-0">
-                <span className="text-xs text-yellow-300 font-bold leading-none">★</span>
-              </div>
-              <div className="text-[11px] leading-tight">
-                <span className="text-slate-400 block">{t.eu.cofunded}</span>
-                <span className="text-white font-bold">{t.eu.euName}</span>
+            {/* Official EU Co-funded Flag Box with Exact Flag of Europe */}
+            <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 max-w-sm shadow-xs">
+              <img
+                src="/eu-flag.svg"
+                alt="European Union Official Flag"
+                className="w-14 h-9.5 object-cover rounded-[2px] shadow-sm flex-shrink-0 border border-blue-950"
+              />
+              <div className="text-xs leading-tight">
+                <span className="text-slate-300 block text-[11px] font-medium">Co-funded by the</span>
+                <span className="text-white font-bold text-sm block tracking-tight">Erasmus+ Programme</span>
+                <span className="text-slate-400 text-[10.5px]">of the European Union</span>
               </div>
             </div>
           </div>
@@ -54,7 +57,7 @@ export default function Footer({ t, lang, partners }) {
               <li><Link to="/news" className="hover:text-white transition">{t.nav.news}</Link></li>
               <li><Link to="/tenders" className="hover:text-white transition">{t.nav.tenders}</Link></li>
               <li><Link to="/contact" className="hover:text-white transition">{t.nav.contact}</Link></li>
-              <li><Link to="/admin" className="text-sky-400 hover:underline">{t.nav.admin} Panel</Link></li>
+              <li><Link to="/login" className="text-slate-400 hover:text-white">{t.nav.login}</Link></li>
             </ul>
           </div>
 
