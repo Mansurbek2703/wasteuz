@@ -131,7 +131,7 @@ export default function PartnersPage({ t, lang, partners }) {
                     href={partner.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#1b6b37] hover:text-[#15542b] py-2.5 px-4 rounded-xl hover:bg-emerald-50 transition border-2 border-emerald-500/40"
+                    className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-[#1b6b37] hover:bg-[#14532b] py-3 px-4 rounded-xl shadow-xs transition"
                   >
                     <span>{t.partners.visitSite}</span>
                     <ExternalLink className="w-3.5 h-3.5" />

@@ -28,90 +28,90 @@ export default function Navbar({ lang, setLang, t }) {
   const isAboutActive = location.pathname.startsWith('/about');
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-xs border-b-2 border-emerald-600/30">
-      <div className="max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
+    <header className="sticky top-0 z-50 bg-white shadow-md border-b-2 border-slate-200">
+      <div className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         
-        {/* LEFT: EU Flag Emblem FIRST + WASTE-UZ Logo */}
-        <div className="flex items-center gap-2 sm:gap-3.5 flex-shrink-0">
-          {/* EU Co-funded Flag Emblem - positioned before site logo */}
-          <div className="flex items-center gap-2 sm:gap-2.5 py-1">
+        {/* LEFT: EU Flag Emblem FIRST + Divider + Prominent WASTE-UZ Logo */}
+        <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+          {/* EU Co-funded Flag Emblem - positioned first on the left */}
+          <div className="flex items-center gap-2.5 py-1">
             <img
               src="/eu-flag.svg"
               alt="Flag of the European Union"
-              className="w-8 h-5.5 sm:w-10 sm:h-6.5 object-cover rounded-[2px] shadow-2xs flex-shrink-0 border border-blue-950"
+              className="w-10 h-6.5 sm:w-11 sm:h-7.5 object-cover rounded-[2px] shadow-xs flex-shrink-0 border border-blue-950"
             />
-            <div className="flex flex-col text-[9.5px] sm:text-[11px] font-semibold text-[#003399] leading-[1.15] tracking-tight whitespace-nowrap select-none">
+            <div className="flex flex-col text-[10px] sm:text-[11.5px] font-bold text-[#003399] leading-[1.15] tracking-tight whitespace-nowrap select-none">
               <span>Co-funded by the</span>
-              <span className="font-bold">Erasmus+ Programme</span>
+              <span className="font-extrabold text-[#002266]">Erasmus+ Programme</span>
               <span>of the European Union</span>
             </div>
           </div>
 
-          {/* Elegant Divider */}
-          <div className="h-8 sm:h-10 w-[1px] bg-slate-200 flex-shrink-0" />
+          {/* Vertical Divider */}
+          <div className="h-10 w-[1.5px] bg-slate-300 mx-0.5 sm:mx-1 flex-shrink-0" />
 
-          {/* Prominent WASTE-UZ Logo */}
+          {/* Prominent WASTE-UZ Official Logo */}
           <Link to="/" className="flex items-center group py-0.5">
             <img
               src="/logo.jpg"
               alt="WASTE-UZ Official Logo"
-              className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition duration-200 group-hover:scale-102"
+              className="h-12 sm:h-14 lg:h-16 w-auto object-contain transition duration-200 group-hover:scale-102"
             />
           </Link>
         </div>
 
-        {/* DESKTOP NAVIGATION MENU (Single clean horizontal row with whitespace-nowrap) */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 2xl:gap-2 text-[13px] xl:text-[14px] font-medium text-slate-700 whitespace-nowrap">
-          {/* Home as Green Pill */}
+        {/* FULL-HEIGHT RECTANGULAR NAVIGATION TABS */}
+        <nav className="hidden lg:flex items-stretch h-full text-[14px] xl:text-[15px] font-bold whitespace-nowrap">
+          {/* Home Tab */}
           <NavLink
             to="/"
             end
             className={({ isActive }) =>
-              `px-4 xl:px-5 py-2 rounded-full font-semibold transition text-xs xl:text-sm whitespace-nowrap flex items-center ${
+              `h-full flex items-center px-4 xl:px-5 transition-all select-none border-b-4 ${
                 isActive
-                  ? 'bg-[#1b6b37] text-white shadow-xs'
-                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-slate-800 hover:text-[#1b6b37] hover:bg-slate-50 border-b-transparent'
               }`
             }
           >
             {t.nav.home}
           </NavLink>
 
-          {/* About Dropdown */}
-          <div className="relative" ref={dropdownRef}>
+          {/* About Dropdown Tab */}
+          <div className="relative h-full flex items-stretch" ref={dropdownRef}>
             <button
               onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
               onMouseEnter={() => setAboutDropdownOpen(true)}
-              className={`px-3 xl:px-3.5 py-2 rounded-full transition flex items-center gap-1 text-xs xl:text-sm whitespace-nowrap ${
+              className={`h-full flex items-center gap-1 px-3.5 xl:px-4.5 transition-all select-none border-b-4 ${
                 isAboutActive
-                  ? 'text-[#1b6b37] font-bold bg-emerald-50/70'
-                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-slate-800 hover:text-[#1b6b37] hover:bg-slate-50 border-b-transparent'
               }`}
             >
-              <span className="whitespace-nowrap">{t.nav.about}</span>
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 flex-shrink-0 ${aboutDropdownOpen ? 'rotate-180 text-[#1b6b37]' : 'text-slate-400'}`} />
+              <span>{t.nav.about}</span>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {aboutDropdownOpen && (
-              <div 
+              <div
                 onMouseLeave={() => setAboutDropdownOpen(false)}
-                className="absolute left-0 top-full mt-1 w-52 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-50 animate-fadeIn"
+                className="absolute left-0 top-full w-56 bg-white rounded-b-2xl shadow-2xl border-2 border-slate-200 py-2 z-50 animate-fadeIn"
               >
                 <Link
                   to="/about"
-                  className="block px-4 py-2 text-xs sm:text-sm text-slate-700 hover:bg-slate-50 hover:text-[#1b6b37] font-medium whitespace-nowrap"
+                  className="block px-5 py-2.5 text-sm text-slate-800 hover:bg-emerald-50 hover:text-[#1b6b37] font-bold whitespace-nowrap"
                 >
                   {t.nav.aboutProject}
                 </Link>
                 <Link
                   to="/about#objectives"
-                  className="block px-4 py-2 text-xs sm:text-sm text-slate-700 hover:bg-slate-50 hover:text-[#1b6b37] font-medium whitespace-nowrap"
+                  className="block px-5 py-2.5 text-sm text-slate-800 hover:bg-emerald-50 hover:text-[#1b6b37] font-bold whitespace-nowrap"
                 >
                   {t.nav.objectives}
                 </Link>
                 <Link
                   to="/about#passport"
-                  className="block px-4 py-2 text-xs sm:text-sm text-slate-700 hover:bg-slate-50 hover:text-[#1b6b37] font-medium whitespace-nowrap"
+                  className="block px-5 py-2.5 text-sm text-slate-800 hover:bg-emerald-50 hover:text-[#1b6b37] font-bold whitespace-nowrap"
                 >
                   {t.nav.passport}
                 </Link>
@@ -119,99 +119,99 @@ export default function Navbar({ lang, setLang, t }) {
             )}
           </div>
 
-          {/* Activities */}
+          {/* Activities Tab */}
           <NavLink
             to="/activities"
             className={({ isActive }) =>
-              `px-3 xl:px-3.5 py-2 rounded-full transition text-xs xl:text-sm whitespace-nowrap ${
+              `h-full flex items-center px-4 xl:px-5 transition-all select-none border-b-4 ${
                 isActive
-                  ? 'text-[#1b6b37] font-bold bg-emerald-50/70'
-                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-slate-800 hover:text-[#1b6b37] hover:bg-slate-50 border-b-transparent'
               }`
             }
           >
             {t.nav.workPackages}
           </NavLink>
 
-          {/* News */}
+          {/* News Tab */}
           <NavLink
             to="/news"
             className={({ isActive }) =>
-              `px-3 xl:px-3.5 py-2 rounded-full transition text-xs xl:text-sm whitespace-nowrap ${
+              `h-full flex items-center px-4 xl:px-5 transition-all select-none border-b-4 ${
                 isActive
-                  ? 'text-[#1b6b37] font-bold bg-emerald-50/70'
-                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-slate-800 hover:text-[#1b6b37] hover:bg-slate-50 border-b-transparent'
               }`
             }
           >
             {t.nav.news}
           </NavLink>
 
-          {/* Events */}
+          {/* Events Tab */}
           <NavLink
             to="/events"
             className={({ isActive }) =>
-              `px-3 xl:px-3.5 py-2 rounded-full transition text-xs xl:text-sm whitespace-nowrap ${
+              `h-full flex items-center px-4 xl:px-5 transition-all select-none border-b-4 ${
                 isActive
-                  ? 'text-[#1b6b37] font-bold bg-emerald-50/70'
-                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-slate-800 hover:text-[#1b6b37] hover:bg-slate-50 border-b-transparent'
               }`
             }
           >
             {t.nav.events}
           </NavLink>
 
-          {/* Tenders */}
+          {/* Tenders Tab */}
           <NavLink
             to="/tenders"
             className={({ isActive }) =>
-              `px-3 xl:px-3.5 py-2 rounded-full transition text-xs xl:text-sm whitespace-nowrap ${
+              `h-full flex items-center px-4 xl:px-5 transition-all select-none border-b-4 ${
                 isActive
-                  ? 'text-[#1b6b37] font-bold bg-emerald-50/70'
-                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-slate-800 hover:text-[#1b6b37] hover:bg-slate-50 border-b-transparent'
               }`
             }
           >
             {t.nav.tenders}
           </NavLink>
 
-          {/* Partners */}
+          {/* Partners Tab */}
           <NavLink
             to="/partners"
             className={({ isActive }) =>
-              `px-3 xl:px-3.5 py-2 rounded-full transition text-xs xl:text-sm whitespace-nowrap ${
+              `h-full flex items-center px-4 xl:px-5 transition-all select-none border-b-4 ${
                 isActive
-                  ? 'text-[#1b6b37] font-bold bg-emerald-50/70'
-                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-slate-800 hover:text-[#1b6b37] hover:bg-slate-50 border-b-transparent'
               }`
             }
           >
             {t.nav.partners}
           </NavLink>
 
-          {/* Virtual Lab */}
+          {/* Virtual Lab Tab */}
           <NavLink
             to="/virtual-lab"
             className={({ isActive }) =>
-              `px-3.5 py-2 rounded-full transition text-xs xl:text-sm whitespace-nowrap flex items-center gap-1.5 ${
+              `h-full flex items-center gap-1.5 px-4 xl:px-5 transition-all select-none border-b-4 ${
                 isActive
-                  ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                  : 'text-emerald-700 font-semibold hover:bg-emerald-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-emerald-700 hover:text-[#1b6b37] hover:bg-emerald-50/60 border-b-transparent'
               }`
             }
           >
-            <Sparkles className="w-3.5 h-3.5 flex-shrink-0" />
+            <Sparkles className="w-4 h-4 flex-shrink-0" />
             <span>{t.nav.virtualLab}</span>
           </NavLink>
 
-          {/* Contact */}
+          {/* Contact Tab */}
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `px-3 xl:px-3.5 py-2 rounded-full transition text-xs xl:text-sm whitespace-nowrap ${
+              `h-full flex items-center px-4 xl:px-5 transition-all select-none border-b-4 ${
                 isActive
-                  ? 'text-[#1b6b37] font-bold bg-emerald-50/70'
-                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+                  ? 'bg-[#1b6b37] text-white border-b-emerald-400 font-extrabold shadow-inner'
+                  : 'text-slate-800 hover:text-[#1b6b37] hover:bg-slate-50 border-b-transparent'
               }`
             }
           >
@@ -219,42 +219,42 @@ export default function Navbar({ lang, setLang, t }) {
           </NavLink>
         </nav>
 
-        {/* RIGHT CONTROLS: Language & Login & Mobile Hamburger */}
-        <div className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0">
+        {/* RIGHT CONTROLS: Language & Login */}
+        <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
           {/* Language Switcher */}
           <button
             onClick={() => setLang(lang === 'en' ? 'uz' : 'en')}
-            className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-full border border-slate-200 hover:border-slate-300 text-slate-700 transition font-bold text-xs"
-            title="Switch Language"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border-2 border-slate-300 hover:border-[#1b6b37] text-slate-800 font-bold text-xs sm:text-sm bg-white transition hover:bg-slate-50 shadow-xs"
+            title="Switch language (EN / UZ)"
           >
-            <Globe className="w-3.5 h-3.5 text-slate-500" />
-            <span>{lang === 'en' ? "UZ" : "EN"}</span>
+            <Globe className="w-4 h-4 text-[#1b6b37]" />
+            <span>{lang === 'en' ? 'EN' : 'UZ'}</span>
           </button>
 
-          {/* Login Button (Hidden on very small screens, placed inside mobile drawer) */}
+          {/* Login Button */}
           <Link
             to="/login"
-            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-slate-200 hover:border-[#1b6b37] hover:text-[#1b6b37] text-slate-700 transition font-semibold text-xs bg-slate-50/80 shadow-2xs whitespace-nowrap"
+            className="hidden sm:flex items-center gap-1.5 px-4.5 py-2 rounded-xl bg-slate-900 hover:bg-[#1b6b37] text-white font-bold text-xs sm:text-sm transition shadow-sm whitespace-nowrap"
             title="Consortium Login"
           >
-            <LogIn className="w-3.5 h-3.5 text-slate-500" />
+            <LogIn className="w-4 h-4" />
             <span>{t.nav.login}</span>
           </Link>
 
-          {/* MOBILE HAMBURGER BUTTON (Clearly visible on mobile & tablet) */}
+          {/* Mobile Hamburger Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 transition"
+            className="lg:hidden p-2.5 rounded-xl text-slate-800 bg-slate-100 hover:bg-slate-200 transition border border-slate-300"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6 text-slate-900" /> : <Menu className="w-6 h-6 text-slate-900" />}
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* MOBILE DRAWER (Full navigation links when menu is opened) */}
+      {/* MOBILE DRAWER */}
       {isOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-5 pt-4 pb-8 space-y-2 shadow-2xl animate-fadeIn">
+        <div className="lg:hidden border-t-2 border-slate-200 bg-white px-5 pt-4 pb-8 space-y-2 shadow-2xl animate-fadeIn">
           {/* Mobile EU Badge */}
           <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 mb-3">
             <img
@@ -262,7 +262,7 @@ export default function Navbar({ lang, setLang, t }) {
               alt="Flag of the European Union"
               className="w-8 h-5.5 object-cover rounded-[2px] shadow-2xs border border-blue-950 flex-shrink-0"
             />
-            <div className="text-[11px] font-semibold text-[#003399] leading-tight">
+            <div className="text-[11px] font-bold text-[#003399] leading-tight">
               Co-funded by the Erasmus+ Programme of the European Union
             </div>
           </div>
@@ -272,8 +272,8 @@ export default function Navbar({ lang, setLang, t }) {
             end
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-800 hover:bg-slate-100'
               }`
             }
           >
@@ -284,8 +284,8 @@ export default function Navbar({ lang, setLang, t }) {
             to="/about"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-800 hover:bg-slate-100'
               }`
             }
           >
@@ -296,8 +296,8 @@ export default function Navbar({ lang, setLang, t }) {
             to="/activities"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-800 hover:bg-slate-100'
               }`
             }
           >
@@ -308,8 +308,8 @@ export default function Navbar({ lang, setLang, t }) {
             to="/news"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-800 hover:bg-slate-100'
               }`
             }
           >
@@ -320,8 +320,8 @@ export default function Navbar({ lang, setLang, t }) {
             to="/events"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-800 hover:bg-slate-100'
               }`
             }
           >
@@ -332,8 +332,8 @@ export default function Navbar({ lang, setLang, t }) {
             to="/tenders"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-800 hover:bg-slate-100'
               }`
             }
           >
@@ -344,8 +344,8 @@ export default function Navbar({ lang, setLang, t }) {
             to="/partners"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-800 hover:bg-slate-100'
               }`
             }
           >
@@ -356,8 +356,8 @@ export default function Navbar({ lang, setLang, t }) {
             to="/virtual-lab"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-emerald-600 text-white' : 'text-emerald-700 font-bold hover:bg-emerald-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-emerald-700 font-bold hover:bg-emerald-50'
               }`
             }
           >
@@ -368,19 +368,19 @@ export default function Navbar({ lang, setLang, t }) {
             to="/contact"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
-              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
-                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              `block px-4 py-3 rounded-xl text-sm font-bold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-800 hover:bg-slate-100'
               }`
             }
           >
             {t.nav.contact}
           </NavLink>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+          <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
             <Link
               to="/login"
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold"
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold"
             >
               <LogIn className="w-4 h-4" />
               <span>{t.nav.login}</span>
@@ -391,9 +391,9 @@ export default function Navbar({ lang, setLang, t }) {
                 setLang(lang === 'en' ? 'uz' : 'en');
                 setIsOpen(false);
               }}
-              className="text-xs font-bold text-slate-700 hover:text-brand-blue"
+              className="text-xs font-bold text-slate-800 hover:text-[#1b6b37] px-3 py-2 rounded-lg bg-slate-100"
             >
-              Language: {lang === 'en' ? "English" : "O'zbekcha"}
+              Language: {lang === 'en' ? "English (EN)" : "O'zbekcha (UZ)"}
             </button>
           </div>
         </div>
