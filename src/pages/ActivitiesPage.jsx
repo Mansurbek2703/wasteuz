@@ -189,3 +189,4 @@ export default function ActivitiesPage({ t, lang, workPackages }) {
     </div>
   );
 }
+

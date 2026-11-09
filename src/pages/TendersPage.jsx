@@ -82,3 +82,4 @@ export default function TendersPage({ t, lang, tenders }) {
     </div>
   );
 }
+

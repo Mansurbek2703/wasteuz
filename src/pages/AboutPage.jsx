@@ -12,7 +12,7 @@ export default function AboutPage({ t, lang, info }) {
       {/* Page Title */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-brand-blue-dark text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-[#1b6b37] text-xs font-bold uppercase tracking-wider mb-3">
             <BookOpen className="w-3.5 h-3.5" />
             <span>{t.about.tag}</span>
           </div>
@@ -67,7 +67,7 @@ export default function AboutPage({ t, lang, info }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-200 shadow-xs space-y-4">
             <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-brand-blue" />
+              <FileText className="w-5 h-5 text-[#1b6b37]" />
               <span>International Cooperation & Sustainability</span>
             </h3>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
@@ -95,7 +95,7 @@ export default function AboutPage({ t, lang, info }) {
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-slate-900 text-white p-8 rounded-3xl shadow-lg space-y-3">
+          <div id="passport" className="lg:col-span-5 bg-slate-900 text-white p-8 rounded-3xl shadow-lg space-y-3">
             <div className="flex items-center justify-between pb-3 border-b border-slate-800">
               <h4 className="text-lg font-black text-white">Project Passport</h4>
               <span className="text-xs font-mono font-bold text-yellow-400 px-2 py-0.5 rounded bg-yellow-400/20">
@@ -125,8 +125,8 @@ export default function AboutPage({ t, lang, info }) {
                 <span className="text-white">6 Universities (4 UZ, 2 EU)</span>
               </div>
               <div className="flex justify-between py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Total EU Grant</span>
-                <span className="text-yellow-400 font-black">€302,979.07 (Lump Sum)</span>
+                <span className="text-slate-400">Action Type</span>
+                <span className="text-emerald-400 font-medium">ERASMUS-LS (Lump Sum Grant)</span>
               </div>
               <div className="flex justify-between py-1 border-b border-slate-800/80">
                 <span className="text-slate-400">Total Effort</span>

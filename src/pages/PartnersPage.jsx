@@ -91,3 +91,4 @@ export default function PartnersPage({ t, lang, partners }) {
     </div>
   );
 }
+

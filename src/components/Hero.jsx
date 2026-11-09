@@ -84,8 +84,8 @@ export default function Hero({ t, lang }) {
               <Coins className="w-5 h-5" />
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">EU Grant</span>
             </div>
-            <div className="text-xl sm:text-2xl font-black text-slate-900">€302,979</div>
-            <div className="text-xs text-slate-500 mt-1">{t.hero.statBudget}</div>
+            <div className="text-xl sm:text-2xl font-black text-slate-900">500+</div>
+            <div className="text-xs text-slate-500 mt-1">{t.hero.statParticipants}</div>
           </div>
 
           <div className="bg-white/90 backdrop-blur p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-brand-blue/40 transition">

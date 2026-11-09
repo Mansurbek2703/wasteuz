@@ -125,3 +125,4 @@ export default function NewsPage({ t, lang, news }) {
     </div>
   );
 }
+

@@ -2,22 +2,24 @@ export const translations = {
   en: {
     nav: {
       home: "Home",
-      about: "About Project",
-      partners: "Consortium",
-      workPackages: "Work Packages",
+      about: "About WASTE-UZ",
+      aboutProject: "About the Project",
+      objectives: "Objectives & Goals",
+      passport: "Project Passport",
+      partners: "Partners",
+      workPackages: "Activities",
       virtualLab: "Virtual Lab",
-      timeline: "Roadmap",
-      deliverables: "Deliverables",
-      studentHub: "Student Hub",
-      news: "News & Events",
+      news: "News",
+      events: "Events",
       tenders: "Tenders",
       contact: "Contact",
-      admin: "Admin",
+      login: "Login",
       portal: "WASTE-UZ Platform"
     },
     eu: {
       cofunded: "Co-funded by the",
-      euName: "European Union",
+      programme: "Erasmus+ Programme",
+      ofEu: "of the European Union",
       grantRef: "Erasmus+ Project: 101322962 — ERASMUS-EDU-2026-CBHE",
       disclaimer: "Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor the granting authority can be held responsible for them."
     },
@@ -26,11 +28,11 @@ export const translations = {
       title: "Waste Awareness Skills Training & Education",
       subTitle: "Empowering university students and institutions in Uzbekistan with modern competencies in smart waste management, circular economy, and green innovation.",
       exploreBtn: "Explore Project",
-      workPackagesBtn: "Work Packages",
+      workPackagesBtn: "Activities & WPs",
       virtualLabBtn: "Launch Virtual Lab",
       statPartners: "Consortium Partners",
       statDuration: "Months Duration",
-      statBudget: "EU Lump Sum Grant",
+      statParticipants: "Target Trainees",
       statWPs: "Work Packages",
       statEffort: "Person-Months Effort"
     },
@@ -76,17 +78,6 @@ export const translations = {
       due: "Due Date",
       type: "Access Level"
     },
-    timeline: {
-      tag: "36-Month Milestones",
-      heading: "Project Operational Roadmap",
-      subheading: "Structured delivery phases from October 2026 to October 2029 across Uzbekistan and European partners.",
-      year1Title: "Year 1 (M1 – M12): Foundation & Methodology",
-      year1Desc: "Field baseline research across Uzbekistan regions, pedagogical framework design by UVIGO, stakeholder identification by BSU.",
-      year2Title: "Year 2 (M13 – M24): Laboratory Setup & Teacher Mobility",
-      year2Desc: "Building Virtual Labs by Gaziantep, 5-day teacher training in Spain (24 educators), 200 student workshops in Uzbekistan.",
-      year3Title: "Year 3 (M25 – M36): Curriculum Integration & Sustainability",
-      year3Desc: "Full accreditation into degree programs, industry policy briefs with municipalities, final scientific conference proceedings."
-    },
     virtualLab: {
       tag: "WP4 Interactive Innovation",
       heading: "Green Innovation Hub & Virtual Laboratory",
@@ -100,37 +91,19 @@ export const translations = {
       runSimBtn: "Run Simulation Testbed",
       simOutputTitle: "Telemetry & Processing Stream"
     },
-    deliverables: {
-      tag: "Outputs & Documentation",
-      heading: "Official Project Deliverables",
-      subheading: "Contractual milestones and public technical summaries produced by the consortium.",
-      filterAll: "All Work Packages",
-      filterPublic: "Public Reports",
-      filterSensitive: "Internal / Evaluator Reports",
-      statusScheduled: "Scheduled",
-      statusInProgress: "In Progress",
-      statusCompleted: "Approved"
-    },
-    studentHub: {
-      tag: "Student Innovation (WP5)",
-      heading: "Green Ideas & Eco-Startup Incubator",
-      subheading: "Are you a student at AKHU, BSU, FSTU, or Green University? Submit your smart recycling, circular economy, or clean-tech idea for mentorship and pilot prototyping support.",
-      submitIdeaBtn: "Submit Innovation Pitch",
-      formTitle: "Student Project Submission",
-      ideaName: "Startup / Innovation Concept Name",
-      category: "Theme (IoT Waste Sorting, Bio-Composting, Recycling Logistics, Clean Energy)",
-      team: "Team Members & University",
-      pitch: "Summary of Solution & Impact",
-      sendPitch: "Submit for WP5 Review"
-    },
     news: {
       tag: "Updates & Announcements",
-      heading: "Latest News & Events",
+      heading: "Latest News",
       readMore: "Read Full Article",
       filterAll: "All Categories",
       filterNews: "Project News",
       filterTenders: "Tenders & Vacancies",
       filterEvents: "Events & Workshops"
+    },
+    events: {
+      tag: "Calendar",
+      heading: "Project Events & Workshops",
+      subheading: "Multiplication seminars, steering committee sessions, and student workshops."
     },
     tenders: {
       tag: "Procurement & Opportunities",
@@ -164,22 +137,24 @@ export const translations = {
   uz: {
     nav: {
       home: "Bosh sahifa",
-      about: "Loyiha haqida",
+      about: "WASTE-UZ haqida",
+      aboutProject: "Loyiha haqida",
+      objectives: "Maqsad va vazifalar",
+      passport: "Loyiha pasporti",
       partners: "Hamkorlar",
-      workPackages: "Ish paketlari",
+      workPackages: "Faoliyatlar",
       virtualLab: "Virtual laboratoriya",
-      timeline: "Yo'l xaritasi",
-      deliverables: "Natijalar",
-      studentHub: "Talabalar xabi",
       news: "Yangiliklar",
+      events: "Tadbirlar",
       tenders: "Tenderlar",
       contact: "Bog'lanish",
-      admin: "Admin",
+      login: "Kirish",
       portal: "WASTE-UZ Portali"
     },
     eu: {
-      cofunded: "Yevropa Ittifoqi tomonidan",
-      euName: "moliyalashtirilgan",
+      cofunded: "Co-funded by the",
+      programme: "Erasmus+ Programme",
+      ofEu: "of the European Union",
       grantRef: "Erasmus+ Loyihasi: 101322962 — ERASMUS-EDU-2026-CBHE",
       disclaimer: "Yevropa Ittifoqi tomonidan moliyalashtirilgan. Bildirilgan fikr va mulohazalar faqat muallif(lar)ga tegishli bo'lib, Yevropa Ittifoqi yoki Yevropa Ta'lim va Madaniyat Ijroiya Agentligi (EACEA) rasmiy pozitsiyasini aks ettirmaydi."
     },
@@ -188,11 +163,11 @@ export const translations = {
       title: "Chiqindilarni boshqarish bo'yicha ko'nikmalar, ta'lim va xabardorlik",
       subTitle: "O'zbekiston oliy ta'lim muassasalari talabalari va o'qituvchilarida aqlli chiqindilarni boshqarish, aylanma iqtisodiyot va yashil innovatsiyalar ko'nikmalarini rivojlantirish.",
       exploreBtn: "Loyiha bilan tanishish",
-      workPackagesBtn: "Ish paketlari",
-      virtualLabBtn: "Virtual laboratoriyaga o'tish",
+      workPackagesBtn: "Faoliyatlar va WPlar",
+      virtualLabBtn: "Virtual laboratoriya",
       statPartners: "Hamkor OTMlar",
       statDuration: "Oy davomiyligi",
-      statBudget: "YI Granti (Lump Sum)",
+      statParticipants: "O'qitiladigan talabalar",
       statWPs: "Ish paketlari (WP)",
       statEffort: "Kishi-oy hajmi"
     },
@@ -238,17 +213,6 @@ export const translations = {
       due: "Muddati",
       type: "Kirish darajasi"
     },
-    timeline: {
-      tag: "36 oylik bosqichlar",
-      heading: "Loyiha yo'l xaritasi",
-      subheading: "2026-yil oktyabrdan 2029-yil oktyabrgacha barcha bosqichlar va asosiy marralar.",
-      year1Title: "1-yil (M1 – M12): Poydevor va metodologiya",
-      year1Desc: "O'zbekiston hududlarida amaldagi chiqindi boshqaruvi bo'yicha dastlabki tadqiqotlar, Vigo universiteti tomonidan metodik qo'llanma ishlab chiqilishi.",
-      year2Title: "2-yil (M13 – M24): Laboratoriyalar va Ispaniya stajirovkasi",
-      year2Desc: "Gaziantep universiteti bilan Virtual laboratoriyani ishga tushirish, Ispaniyada 24 nafar o'qituvchi malakasini oshirish, 200 talaba uchun treninglar.",
-      year3Title: "3-yil (M25 – M36): O'quv dasturiga kiritish va barqarorlik",
-      year3Desc: "Universitetlar o'quv dasturlariga rasmiy integratsiya qilish, hokimliklarga qonunchilik takliflarini taqdim etish, yakuniy ilmiy konferensiya."
-    },
     virtualLab: {
       tag: "WP4 Innovatsiyasi",
       heading: "Yashil innovatsiyalar markazi va Virtual laboratoriya",
@@ -262,37 +226,19 @@ export const translations = {
       runSimBtn: "Simulyatsiyani ishga tushirish",
       simOutputTitle: "Telemetriya va qayta ishlash ko'rsatkichlari"
     },
-    deliverables: {
-      tag: "Hisobotlar va natijalar",
-      heading: "Rasmiy loyiha natijalari (Deliverables)",
-      subheading: "Konsorsium tomonidan taqdim etiladigan shartnomaviy hisobotlar va ommaviy ilmiy hujjatlar.",
-      filterAll: "Barcha ish paketlari",
-      filterPublic: "Ochiq hisobotlar",
-      filterSensitive: "Ichki / Baholovchi hisobotlari",
-      statusScheduled: "Rejalashtirilgan",
-      statusInProgress: "Jarayonda",
-      statusCompleted: "Tasdiqlangan"
-    },
-    studentHub: {
-      tag: "Talabalar innovatsiyasi (WP5)",
-      heading: "Yashil g'oyalar va Eko-startaplar akseleratori",
-      subheading: "AKHU, BDU, FarDU yoki Yashil universitet talabasisiz? Aqlli qayta ishlash, aylanma iqtisodiyot yoki toza texnologiyalar bo'yicha g'oyangizni taqdim eting va grant dasturida ishtirok eting.",
-      submitIdeaBtn: "G'oyani yuborish",
-      formTitle: "Talabalar loyihasini topshirish",
-      ideaName: "Startap yoki innovatsion g'oya nomi",
-      category: "Yo'nalish (IoT chiqindi saralash, biokompost, qayta ishlash logistikasi)",
-      team: "Jamoa a'zolari va universitet",
-      pitch: "Yechim tavsifi va kutilayotgan samara",
-      sendPitch: "WP5 ko'rib chiqishiga yuborish"
-    },
     news: {
       tag: "Yangiliklar va tadbirlar",
-      heading: "So'nggi xabarlar va e'lonlar",
+      heading: "So'nggi xabarlar va yangiliklar",
       readMore: "Batafsil o'qish",
       filterAll: "Barchasi",
       filterNews: "Loyiha yangiliklari",
       filterTenders: "Tenderlar va tanlovlar",
       filterEvents: "Seminarlar va tadbirlar"
+    },
+    events: {
+      tag: "Kalendar",
+      heading: "Seminarlar va tadbirlar",
+      subheading: "Loyiha doirasida o'tkaziladigan xalqaro uchrashuvlar va treninglar."
     },
     tenders: {
       tag: "Tanlovlar va xaridlar",

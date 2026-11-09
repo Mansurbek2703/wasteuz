@@ -1,116 +1,259 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, Shield, Sparkles } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, User, LogIn, Sparkles } from 'lucide-react';
 
 export default function Navbar({ lang, setLang, t }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const location = useLocation();
+  const dropdownRef = useRef(null);
 
-  const navLinks = [
-    { to: '/', label: t.nav.home },
-    { to: '/about', label: t.nav.about },
-    { to: '/partners', label: t.nav.partners },
-    { to: '/activities', label: t.nav.workPackages },
-    { to: '/virtual-lab', label: t.nav.virtualLab, highlight: true },
-    { to: '/news', label: t.nav.news },
-    { to: '/tenders', label: t.nav.tenders },
-    { to: '/contact', label: t.nav.contact },
-  ];
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setAboutDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setAboutDropdownOpen(false);
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  const isAboutActive = location.pathname.startsWith('/about');
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-xs border-b border-slate-200">
-      {/* Top EU Co-funded Bar */}
-      <div className="bg-slate-900 text-slate-100 text-xs py-2 px-4 sm:px-8 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-4.5 bg-[#003399] rounded-xs flex items-center justify-center relative overflow-hidden shadow-xs">
-              <span className="text-[11px] text-yellow-300 font-bold leading-none">★</span>
+    <header className="sticky top-0 z-50 bg-white shadow-xs border-b border-slate-200">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+        
+        {/* LEFT: Project Logo + Official EU Co-funded Flag Emblem (Exact greenengine style) */}
+        <div className="flex items-center gap-3 sm:gap-5 flex-shrink-0">
+          {/* Main Logo */}
+          <Link to="/" className="flex items-center gap-2 group">
+            <img
+              src="/logo.jpg"
+              alt="WASTE-UZ Official Logo"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain transition duration-200 group-hover:scale-102"
+            />
+          </Link>
+
+          {/* EU Co-funded by Erasmus+ Emblem (as shown in image) */}
+          <div className="flex items-center gap-2.5 pl-3 border-l border-slate-200/90 py-1">
+            {/* European Flag with 12 stars */}
+            <div className="w-9 h-6 sm:w-10 sm:h-6.5 bg-[#003399] rounded-[2px] flex items-center justify-center relative overflow-hidden shadow-2xs flex-shrink-0">
+              <svg viewBox="0 0 100 66" className="w-full h-full p-0.5">
+                <circle cx="50" cy="12" r="3" fill="#FFCC00" />
+                <circle cx="69" cy="17" r="3" fill="#FFCC00" />
+                <circle cx="81" cy="33" r="3" fill="#FFCC00" />
+                <circle cx="81" cy="50" r="3" fill="#FFCC00" />
+                <circle cx="69" cy="61" r="3" fill="#FFCC00" />
+                <circle cx="50" cy="65" r="3" fill="#FFCC00" />
+                <circle cx="31" cy="61" r="3" fill="#FFCC00" />
+                <circle cx="19" cy="50" r="3" fill="#FFCC00" />
+                <circle cx="19" cy="33" r="3" fill="#FFCC00" />
+                <circle cx="31" cy="17" r="3" fill="#FFCC00" />
+              </svg>
             </div>
-            <span className="font-medium text-[11px] sm:text-xs">
-              <strong className="text-yellow-400 font-bold">{t.eu.cofunded}</strong> {t.eu.euName}
-            </span>
-            <span className="hidden md:inline text-slate-500">|</span>
-            <span className="hidden md:inline text-slate-300 font-mono text-[11px]">
-              {t.eu.grantRef}
-            </span>
-          </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setLang(lang === 'en' ? 'uz' : 'en')}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition font-medium text-xs"
-              title="Tilni o'zgartirish"
-            >
-              <Globe className="w-3.5 h-3.5 text-sky-400" />
-              <span>{lang === 'en' ? "O'zbekcha" : "English"}</span>
-            </button>
-
-            <Link
-              to="/admin"
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded font-semibold text-xs transition ${
-                location.pathname.startsWith('/admin')
-                  ? 'bg-brand-blue text-white'
-                  : 'bg-slate-800 hover:bg-slate-700 text-sky-300'
-              }`}
-            >
-              <Shield className="w-3.5 h-3.5" />
-              <span>{t.nav.admin}</span>
-            </Link>
+            {/* Official EU Typography */}
+            <div className="flex flex-col text-[10px] sm:text-[11px] font-semibold text-[#003399] leading-[1.15] tracking-tight select-none">
+              <span>Co-funded by the</span>
+              <span className="font-bold">Erasmus+ Programme</span>
+              <span>of the European Union</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Header with LARGE LOGO */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between">
-        {/* Large Logo */}
-        <Link to="/" className="flex items-center gap-3.5 group">
-          <img
-            src="/logo.jpg"
-            alt="WASTE-UZ Official Logo"
-            className="h-14 sm:h-16 md:h-18 w-auto object-contain rounded-lg p-0.5 border border-slate-100 shadow-xs group-hover:scale-102 transition duration-200"
-          />
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="font-black text-2xl sm:text-3xl tracking-tight text-slate-900 group-hover:text-brand-blue transition">
-                WASTE<span className="text-brand-green">UZ</span>
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-sky-100 text-brand-blue-dark rounded-full">
-                101322962
-              </span>
-            </div>
-            <span className="text-xs text-slate-500 font-medium hidden sm:block max-w-sm truncate">
-              Waste Awareness Skills Training & Education — Uzbekistan
-            </span>
-          </div>
-        </Link>
+        {/* CENTER / RIGHT: Navigation Items (exact greenengine style) */}
+        <nav className="hidden xl:flex items-center gap-1.5 lg:gap-2 text-[14px] font-medium text-slate-700">
+          {/* Home as Green Pill */}
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              `px-5 py-2 rounded-full font-semibold transition text-sm flex items-center ${
+                isActive
+                  ? 'bg-[#1b6b37] text-white shadow-xs'
+                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.home}
+          </NavLink>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-[14px] font-semibold text-slate-700">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={({ isActive }) =>
-                `px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${
-                  isActive
-                    ? 'bg-brand-blue text-white shadow-xs'
-                    : link.highlight
-                    ? 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200'
-                    : 'hover:text-brand-blue hover:bg-slate-100/80'
-                }`
-              }
+          {/* About Dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+              onMouseEnter={() => setAboutDropdownOpen(true)}
+              className={`px-3.5 py-2 rounded-full transition flex items-center gap-1.5 font-medium text-sm ${
+                isAboutActive
+                  ? 'text-[#1b6b37] font-bold bg-emerald-50/60'
+                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+              }`}
             >
-              {link.highlight && <Sparkles className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />}
-              <span>{link.label}</span>
-            </NavLink>
-          ))}
+              <span>{t.nav.about}</span>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-[#1b6b37]' : 'text-slate-400'}`} />
+            </button>
+
+            {aboutDropdownOpen && (
+              <div 
+                onMouseLeave={() => setAboutDropdownOpen(false)}
+                className="absolute left-0 top-full mt-1 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-50 animate-fadeIn"
+              >
+                <Link
+                  to="/about"
+                  className="block px-4 py-2.5 text-xs sm:text-sm text-slate-700 hover:bg-slate-50 hover:text-[#1b6b37] font-medium"
+                >
+                  {t.nav.aboutProject}
+                </Link>
+                <Link
+                  to="/about#objectives"
+                  className="block px-4 py-2.5 text-xs sm:text-sm text-slate-700 hover:bg-slate-50 hover:text-[#1b6b37] font-medium"
+                >
+                  {t.nav.objectives}
+                </Link>
+                <Link
+                  to="/about#passport"
+                  className="block px-4 py-2.5 text-xs sm:text-sm text-slate-700 hover:bg-slate-50 hover:text-[#1b6b37] font-medium"
+                >
+                  {t.nav.passport}
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Activities */}
+          <NavLink
+            to="/activities"
+            className={({ isActive }) =>
+              `px-3.5 py-2 rounded-full transition text-sm ${
+                isActive
+                  ? 'text-[#1b6b37] font-bold bg-emerald-50/60'
+                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.workPackages}
+          </NavLink>
+
+          {/* News */}
+          <NavLink
+            to="/news"
+            className={({ isActive }) =>
+              `px-3.5 py-2 rounded-full transition text-sm ${
+                isActive
+                  ? 'text-[#1b6b37] font-bold bg-emerald-50/60'
+                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.news}
+          </NavLink>
+
+          {/* Events */}
+          <NavLink
+            to="/news?cat=Events"
+            className={({ isActive }) =>
+              `px-3.5 py-2 rounded-full transition text-sm ${
+                location.search.includes('Events')
+                  ? 'text-[#1b6b37] font-bold bg-emerald-50/60'
+                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.events}
+          </NavLink>
+
+          {/* Tenders */}
+          <NavLink
+            to="/tenders"
+            className={({ isActive }) =>
+              `px-3.5 py-2 rounded-full transition text-sm ${
+                isActive
+                  ? 'text-[#1b6b37] font-bold bg-emerald-50/60'
+                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.tenders}
+          </NavLink>
+
+          {/* Partners */}
+          <NavLink
+            to="/partners"
+            className={({ isActive }) =>
+              `px-3.5 py-2 rounded-full transition text-sm ${
+                isActive
+                  ? 'text-[#1b6b37] font-bold bg-emerald-50/60'
+                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.partners}
+          </NavLink>
+
+          {/* Virtual Lab */}
+          <NavLink
+            to="/virtual-lab"
+            className={({ isActive }) =>
+              `px-3.5 py-2 rounded-full transition text-sm flex items-center gap-1.5 ${
+                isActive
+                  ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                  : 'text-emerald-700 font-semibold hover:bg-emerald-50'
+              }`
+            }
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>{t.nav.virtualLab}</span>
+          </NavLink>
+
+          {/* Contact */}
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `px-3.5 py-2 rounded-full transition text-sm ${
+                isActive
+                  ? 'text-[#1b6b37] font-bold bg-emerald-50/60'
+                  : 'text-slate-700 hover:text-[#1b6b37] hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.contact}
+          </NavLink>
         </nav>
 
-        {/* Mobile Hamburger Button */}
-        <div className="flex lg:hidden items-center gap-2">
+        {/* RIGHT: Language Toggle + Login Button (NOT "Admin") */}
+        <div className="flex items-center gap-2.5">
+          {/* Language Switcher */}
+          <button
+            onClick={() => setLang(lang === 'en' ? 'uz' : 'en')}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 hover:border-slate-300 text-slate-700 transition font-semibold text-xs"
+            title="Language"
+          >
+            <Globe className="w-3.5 h-3.5 text-slate-500" />
+            <span>{lang === 'en' ? "UZ" : "EN"}</span>
+          </button>
+
+          {/* Clean Login Button */}
+          <Link
+            to="/login"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200 hover:border-[#1b6b37] hover:text-[#1b6b37] text-slate-700 transition font-semibold text-xs bg-slate-50/80 shadow-2xs"
+            title="Consortium Login"
+          >
+            <LogIn className="w-3.5 h-3.5 text-slate-500" />
+            <span>{t.nav.login}</span>
+          </Link>
+
+          {/* Mobile Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition"
+            className="xl:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -118,27 +261,126 @@ export default function Navbar({ lang, setLang, t }) {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-1.5 shadow-xl animate-fadeIn">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
+        <div className="xl:hidden border-t border-slate-200 bg-white px-5 pt-3 pb-6 space-y-1.5 shadow-xl animate-fadeIn">
+          <NavLink
+            to="/"
+            end
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.home}
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.about}
+          </NavLink>
+
+          <NavLink
+            to="/activities"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.workPackages}
+          </NavLink>
+
+          <NavLink
+            to="/news"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.news}
+          </NavLink>
+
+          <NavLink
+            to="/tenders"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.tenders}
+          </NavLink>
+
+          <NavLink
+            to="/partners"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.partners}
+          </NavLink>
+
+          <NavLink
+            to="/virtual-lab"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
+                isActive ? 'bg-emerald-600 text-white' : 'text-emerald-700 font-bold hover:bg-emerald-50'
+              }`
+            }
+          >
+            {t.nav.virtualLab}
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) =>
+              `block px-4 py-2.5 rounded-xl text-sm font-semibold transition ${
+                isActive ? 'bg-[#1b6b37] text-white' : 'text-slate-700 hover:bg-slate-50'
+              }`
+            }
+          >
+            {t.nav.contact}
+          </NavLink>
+
+          <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <Link
+              to="/login"
               onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                `block px-3.5 py-2.5 rounded-xl text-sm font-semibold transition ${
-                  isActive
-                    ? 'bg-brand-blue text-white'
-                    : link.highlight
-                    ? 'bg-emerald-50 text-emerald-800 font-bold'
-                    : 'text-slate-800 hover:bg-slate-100'
-                }`
-              }
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold"
             >
-              {link.label}
-            </NavLink>
-          ))}
+              <LogIn className="w-4 h-4" />
+              <span>{t.nav.login}</span>
+            </Link>
+
+            <button
+              onClick={() => {
+                setLang(lang === 'en' ? 'uz' : 'en');
+                setIsOpen(false);
+              }}
+              className="text-xs font-bold text-slate-600 hover:text-brand-blue"
+            >
+              Til: {lang === 'en' ? "O'zbekcha" : "English"}
+            </button>
+          </div>
         </div>
       )}
     </header>

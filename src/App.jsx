@@ -14,12 +14,13 @@ import NewsDetailPage from './pages/NewsDetailPage';
 import TendersPage from './pages/TendersPage';
 import TenderDetailPage from './pages/TenderDetailPage';
 import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage';
 import AdminPage from './pages/AdminPage';
 
 import { translations } from './data/translations';
 
 export default function App() {
-  const [lang, setLang] = useState('uz'); // Default to Uzbek or English
+  const [lang, setLang] = useState('uz');
   const [info, setInfo] = useState(null);
   const [partners, setPartners] = useState([]);
   const [workPackages, setWorkPackages] = useState([]);
@@ -55,7 +56,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased selection:bg-brand-blue selection:text-white">
+      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased selection:bg-[#1b6b37] selection:text-white font-sans">
         <Navbar lang={lang} setLang={setLang} t={t} />
 
         <main className="flex-1">
@@ -109,6 +110,10 @@ export default function App() {
             <Route
               path="/contact"
               element={<ContactPage t={t} lang={lang} />}
+            />
+            <Route
+              path="/login"
+              element={<LoginPage onLoginSuccess={loadAllData} />}
             />
             <Route
               path="/admin"

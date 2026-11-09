@@ -133,7 +133,7 @@ export default function AboutSection({ t, lang, info }) {
               </div>
               <div className="flex justify-between py-1.5 border-b border-slate-800/80">
                 <span className="text-slate-400">Total EU Grant</span>
-                <span className="text-yellow-400 font-bold">€302,979.07 (Lump Sum)</span>
+                <span className="text-yellow-400 font-bold">ERASMUS-LS Grant</span>
               </div>
               <div className="flex justify-between py-1.5 border-b border-slate-800/80">
                 <span className="text-slate-400">Total Effort</span>

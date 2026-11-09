@@ -184,3 +184,4 @@ export default function TenderDetailPage({ tenders, lang, t }) {
     </div>
   );
 }
+

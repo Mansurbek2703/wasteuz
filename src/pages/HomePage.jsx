@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Award, ArrowRight, Layers, Cpu, Users, Calendar, Coins, Clock, BookOpen, Newspaper, FileBadge, CheckCircle2 } from 'lucide-react';
+import { Award, ArrowRight, Layers, Cpu, Users, Calendar, Clock, BookOpen, Newspaper, FileBadge, CheckCircle2, GraduationCap } from 'lucide-react';
 
 export default function HomePage({ t, lang, info, partners, workPackages, news, tenders }) {
   return (
@@ -12,7 +12,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
             {/* Grant Call Pill */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-xs border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700">
               <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping" />
-              <Award className="w-4 h-4 text-brand-blue" />
+              <Award className="w-4 h-4 text-[#1b6b37]" />
               <span>{t.hero.badge}</span>
               <span className="hidden sm:inline text-slate-300">|</span>
               <span className="hidden sm:inline font-mono text-slate-500 text-xs">ERASMUS-EDU-2026-CBHE</span>
@@ -21,7 +21,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
             {/* Main Title */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
               {t.hero.title}
-              <span className="block mt-2 bg-gradient-to-r from-brand-blue via-brand-blue-dark to-brand-green bg-clip-text text-transparent">
+              <span className="block mt-2 bg-gradient-to-r from-[#1b6b37] via-brand-blue to-emerald-600 bg-clip-text text-transparent">
                 WASTE-UZBEKISTAN
               </span>
             </h1>
@@ -35,7 +35,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
             <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-blue text-white font-bold text-sm shadow-md hover:bg-brand-blue-dark transition transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1b6b37] hover:bg-[#15542b] text-white font-bold text-sm shadow-md transition transform hover:-translate-y-0.5"
               >
                 <span>{t.hero.exploreBtn}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -43,15 +43,15 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
 
               <Link
                 to="/activities"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-700 font-bold text-sm shadow-xs hover:bg-slate-50 transition"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white border border-slate-300 text-slate-700 font-bold text-sm shadow-xs hover:bg-slate-50 transition"
               >
-                <Layers className="w-4 h-4 text-brand-blue" />
+                <Layers className="w-4 h-4 text-[#1b6b37]" />
                 <span>{t.hero.workPackagesBtn}</span>
               </Link>
 
               <Link
                 to="/virtual-lab"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 text-white font-bold text-sm shadow-md hover:bg-emerald-700 transition transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition transform hover:-translate-y-0.5"
               >
                 <Cpu className="w-4 h-4" />
                 <span>{t.hero.virtualLabBtn}</span>
@@ -59,7 +59,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
             </div>
           </div>
 
-          {/* Key Metric Cards */}
+          {/* Key Metric Cards (NO GRANT BUDGET SUM) */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 mt-14 max-w-6xl mx-auto">
             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
               <div className="flex items-center gap-2 text-brand-blue mb-2">
@@ -71,21 +71,12 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
             </div>
 
             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
-              <div className="flex items-center gap-2 text-emerald-600 mb-2">
+              <div className="flex items-center gap-2 text-[#1b6b37] mb-2">
                 <Calendar className="w-5 h-5" />
                 <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Duration</span>
               </div>
               <div className="text-3xl font-black text-slate-900">36</div>
               <div className="text-xs text-slate-500 mt-1">{t.hero.statDuration} (2026-2029)</div>
-            </div>
-
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
-              <div className="flex items-center gap-2 text-amber-500 mb-2">
-                <Coins className="w-5 h-5" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">EU Grant</span>
-              </div>
-              <div className="text-2xl sm:text-3xl font-black text-slate-900">€302,979</div>
-              <div className="text-xs text-slate-500 mt-1">{t.hero.statBudget}</div>
             </div>
 
             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
@@ -97,13 +88,22 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
               <div className="text-xs text-slate-500 mt-1">{t.hero.statWPs}</div>
             </div>
 
-            <div className="col-span-2 md:col-span-1 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
               <div className="flex items-center gap-2 text-teal-600 mb-2">
                 <Clock className="w-5 h-5" />
                 <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Effort</span>
               </div>
               <div className="text-3xl font-black text-slate-900">122</div>
               <div className="text-xs text-slate-500 mt-1">{t.hero.statEffort}</div>
+            </div>
+
+            <div className="col-span-2 md:col-span-1 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+              <div className="flex items-center gap-2 text-amber-500 mb-2">
+                <GraduationCap className="w-5 h-5" />
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Target</span>
+              </div>
+              <div className="text-2xl sm:text-3xl font-black text-slate-900">500+</div>
+              <div className="text-xs text-slate-500 mt-1">{t.hero.statParticipants}</div>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
         <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-brand-blue-dark text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-[#1b6b37] text-xs font-bold uppercase tracking-wider">
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>{t.about.tag}</span>
               </div>
@@ -127,7 +127,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
               <div className="pt-2">
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-1.5 font-bold text-sm text-brand-blue hover:text-brand-blue-dark transition"
+                  className="inline-flex items-center gap-1.5 font-bold text-sm text-[#1b6b37] hover:underline transition"
                 >
                   <span>{t.hero.exploreBtn}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -152,8 +152,8 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
                   <span className="text-white">36 Months</span>
                 </div>
                 <div className="flex justify-between py-1">
-                  <span className="text-slate-400">Grant</span>
-                  <span className="text-yellow-400 font-bold">€302,979.07</span>
+                  <span className="text-slate-400">Action Type</span>
+                  <span className="text-emerald-400 font-medium">ERASMUS-LS (Grant)</span>
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-brand-blue mb-1">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#1b6b37] mb-1">
               {t.partners.tag}
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
@@ -174,7 +174,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
           </div>
           <Link
             to="/partners"
-            className="inline-flex items-center gap-1 text-sm font-bold text-brand-blue hover:underline"
+            className="inline-flex items-center gap-1 text-sm font-bold text-[#1b6b37] hover:underline"
           >
             <span>Barcha hamkorlar</span>
             <ArrowRight className="w-4 h-4" />
@@ -191,7 +191,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
                     p.role === 'Coordinator'
-                      ? 'bg-brand-blue text-white'
+                      ? 'bg-[#1b6b37] text-white'
                       : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                   }`}>
                     {p.badge}
@@ -208,7 +208,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
                   href={p.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-brand-blue hover:underline"
+                  className="font-bold text-[#1b6b37] hover:underline"
                 >
                   Website →
                 </a>
@@ -221,14 +221,14 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
       {/* Latest News & Open Tenders */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* News Teaser */}
+          {/* News */}
           <div className="lg:col-span-7 space-y-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Newspaper className="w-5 h-5 text-brand-blue" />
+                <Newspaper className="w-5 h-5 text-[#1b6b37]" />
                 <h3 className="text-xl font-black text-slate-900">{t.news.heading}</h3>
               </div>
-              <Link to="/news" className="text-xs font-bold text-brand-blue hover:underline">
+              <Link to="/news" className="text-xs font-bold text-[#1b6b37] hover:underline">
                 Barchasi →
               </Link>
             </div>
@@ -238,13 +238,13 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
                 <Link
                   key={item.id}
                   to={`/news/${item.slug}`}
-                  className="block bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-blue/50 hover:shadow-md transition"
+                  className="block bg-white p-5 rounded-2xl border border-slate-200 hover:border-[#1b6b37]/50 hover:shadow-md transition"
                 >
                   <div className="flex items-center justify-between text-xs text-slate-400 mb-1.5">
-                    <span className="font-bold text-brand-blue uppercase">{item.category}</span>
+                    <span className="font-bold text-[#1b6b37] uppercase">{item.category}</span>
                     <span>{item.date}</span>
                   </div>
-                  <h4 className="font-bold text-slate-900 text-base mb-1 hover:text-brand-blue transition">
+                  <h4 className="font-bold text-slate-900 text-base mb-1 hover:text-[#1b6b37] transition">
                     {lang === 'uz' ? item.titleUz : item.title}
                   </h4>
                   <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
@@ -255,7 +255,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
             </div>
           </div>
 
-          {/* Open Tenders Teaser */}
+          {/* Open Tenders */}
           <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -277,7 +277,7 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
                     <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">
                       {tender.status}
                     </span>
-                    <span className="text-base font-black text-amber-700">{tender.budget}</span>
+                    <span className="text-xs text-slate-400 font-mono">{tender.wp}</span>
                   </div>
                   <h4 className="font-bold text-slate-900 text-base">
                     {lang === 'uz' ? tender.titleUz : tender.title}
