@@ -263,39 +263,63 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
                 <h3 className="text-xl font-black text-slate-900">{t.tenders.heading}</h3>
               </div>
               <Link to="/tenders" className="text-xs font-bold text-amber-600 hover:underline">
-                Barchasi →
+                {lang === 'uz' ? "Barchasi →" : "View all →"}
               </Link>
             </div>
 
             <div className="space-y-4">
-              {tenders.slice(0, 2).map((tender) => (
-                <div
-                  key={tender.id}
-                  className="bg-white p-6 rounded-2xl border border-amber-200/80 shadow-xs space-y-3"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">
-                      {tender.status}
-                    </span>
-                    <span className="text-xs text-slate-400 font-mono">{tender.wp}</span>
+              {!tenders || tenders.length === 0 ? (
+                <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs text-center py-8 space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto border border-amber-100">
+                    <Clock className="w-6 h-6" />
                   </div>
-                  <h4 className="font-bold text-slate-900 text-base">
-                    {lang === 'uz' ? tender.titleUz : tender.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
-                    {lang === 'uz' ? tender.scopeUz : tender.scope}
-                  </p>
-                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs text-slate-400">Deadline: {tender.deadline}</span>
-                    <Link
-                      to={`/tenders/${tender.slug}`}
-                      className="px-3 py-1.5 rounded-lg bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition"
-                    >
-                      Batafsil
-                    </Link>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm">
+                      {lang === 'uz' ? "Hozirda faol tenderlar mavjud emas" : "No active tenders at this time"}
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-1 max-w-xs mx-auto">
+                      {lang === 'uz' 
+                        ? "Yangi tanlovlar va e'lonlar belgilangan tartibda ushbu bo'limda beriladi." 
+                        : "Future calls and procurement notices will be officially published here."}
+                    </p>
                   </div>
+                  <Link
+                    to="/tenders"
+                    className="inline-block text-xs font-bold text-[#1b6b37] hover:underline pt-1"
+                  >
+                    {lang === 'uz' ? "Tenderlar sahifasi →" : "Tenders Page →"}
+                  </Link>
                 </div>
-              ))}
+              ) : (
+                tenders.slice(0, 2).map((tender) => (
+                  <div
+                    key={tender.id}
+                    className="bg-white p-6 rounded-2xl border border-amber-200/80 shadow-xs space-y-3"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">
+                        {tender.status}
+                      </span>
+                      <span className="text-xs text-slate-400 font-mono">{tender.wp}</span>
+                    </div>
+                    <h4 className="font-bold text-slate-900 text-base">
+                      {lang === 'uz' ? tender.titleUz : tender.title}
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                      {lang === 'uz' ? tender.scopeUz : tender.scope}
+                    </p>
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-xs text-slate-400">Deadline: {tender.deadline}</span>
+                      <Link
+                        to={`/tenders/${tender.slug}`}
+                        className="px-3 py-1.5 rounded-lg bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition"
+                      >
+                        {lang === 'uz' ? "Batafsil" : "Details"}
+                      </Link>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>

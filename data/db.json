@@ -433,20 +433,6 @@
       "image": "/logo.jpg"
     },
     {
-      "id": "news-2",
-      "slug": "call-for-external-quality-assurance-expert",
-      "title": "Open Call for Tender: External Quality Assurance Expert",
-      "titleUz": "Ochiq tender: Tashqi sifat nazorati bo'yicha mustaqil ekspert tanlovi",
-      "category": "Tenders & Vacancies",
-      "date": "2026-11-05",
-      "author": "AKHU Quality Board",
-      "summary": "WASTE-UZ is seeking an independent external quality evaluator to monitor project progress, work packages, and milestone compliance (Budget: EUR 8,000).",
-      "summaryUz": "WASTE-UZ loyihasi faoliyati, ish paketlari va sifat standartlari monitoringi uchun mustaqil tashqi baholovchi tanlovini e'lon qiladi (Byudjet: 8,000 EUR).",
-      "content": "Under Work Package 1 (Project Management and Quality Monitoring), AKHU invites applications from qualified international educational and environmental quality assurance experts. The evaluator will produce independent interim (M18) and final (M36) evaluation reports. Inquiries and tender submissions can be made via the official portal.",
-      "featured": true,
-      "image": "/logo.jpg"
-    },
-    {
       "id": "news-3",
       "slug": "consortium-kickoff-meeting-announced",
       "title": "Upcoming Consortium Kick-off Meeting & Steering Committee Session",
@@ -461,26 +447,7 @@
       "image": "/logo.jpg"
     }
   ],
-  "tenders": [
-    {
-      "id": "tender-1",
-      "slug": "call-for-external-evaluator",
-      "title": "Call for an External Quality Assurance Expert (EACEA / WASTE-UZ)",
-      "titleUz": "Mustaqil tashqi sifat baholovchisi uchun ochiq tanlov",
-      "budget": "8,000 EUR",
-      "deadline": "2026-12-15",
-      "status": "Active",
-      "wp": "WP1 - Task 1.4",
-      "scope": "Evaluate the implementation quality, deliverables, and milestone achievements of Erasmus+ CBHE Project 101322962 across all 6 partner universities.",
-      "scopeUz": "Barcha 6 ta hamkor universitetlarda Erasmus+ CBHE 101322962 loyihasi bajarilishi sifatini, natijalarini va sifat standartlariga muvofiqligini baholash.",
-      "requirements": [
-        "Demonstrated experience in EU Erasmus+ or Horizon quality evaluation",
-        "Expertise in environmental engineering, sustainability, or higher education pedagogy",
-        "Fluency in English (written and spoken)",
-        "Absence of conflict of interest with any consortium partner"
-      ]
-    }
-  ],
+  "tenders": [],
   "events": [
     {
       "id": "event-1",
