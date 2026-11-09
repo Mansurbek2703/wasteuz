@@ -304,9 +304,15 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
         <div className="bg-gradient-to-r from-emerald-50 via-white to-emerald-50/70 rounded-3xl border-2 border-emerald-500/35 p-8 sm:p-10 shadow-xs">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="space-y-3 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b6b37] text-white text-xs font-bold uppercase tracking-wider">
-                <Cpu className="w-3.5 h-3.5" />
-                <span>{t.virtualLab.tag}</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b6b37] text-white text-xs font-bold uppercase tracking-wider">
+                  <Cpu className="w-3.5 h-3.5" />
+                  <span>{t.virtualLab.tag}</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-300">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                  <span>{lang === 'uz' ? "Hozirda ishlab chiqish jarayonida" : "Under Development"}</span>
+                </div>
               </div>
               <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
                 {t.virtualLab.heading}
