@@ -31,30 +31,33 @@ export default function Navbar({ lang, setLang, t }) {
     <header className="sticky top-0 z-50 bg-white shadow-xs border-b-2 border-emerald-600/30">
       <div className="max-w-[1480px] mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4">
         
-        {/* LEFT: Large Official Logo + EU Flag Emblem */}
-        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-          {/* Prominent Logo */}
-          <Link to="/" className="flex items-center group py-0.5">
-            <img
-              src="/logo.jpg"
-              alt="WASTE-UZ Official Logo"
-              className="h-12 sm:h-14 lg:h-16 w-auto object-contain transition duration-200 group-hover:scale-102"
-            />
-          </Link>
-
-          {/* EU Co-funded Flag Emblem - visible on tablet & desktop */}
-          <div className="hidden sm:flex items-center gap-2.5 pl-3 border-l border-slate-200 py-1">
+        {/* LEFT: EU Flag Emblem FIRST + WASTE-UZ Logo */}
+        <div className="flex items-center gap-2 sm:gap-3.5 flex-shrink-0">
+          {/* EU Co-funded Flag Emblem - positioned before site logo */}
+          <div className="flex items-center gap-2 sm:gap-2.5 py-1">
             <img
               src="/eu-flag.svg"
               alt="Flag of the European Union"
-              className="w-9 h-6 sm:w-10 sm:h-6.5 object-cover rounded-[2px] shadow-2xs flex-shrink-0 border border-blue-950"
+              className="w-8 h-5.5 sm:w-10 sm:h-6.5 object-cover rounded-[2px] shadow-2xs flex-shrink-0 border border-blue-950"
             />
-            <div className="flex flex-col text-[10px] sm:text-[11px] font-semibold text-[#003399] leading-[1.15] tracking-tight whitespace-nowrap select-none">
+            <div className="flex flex-col text-[9.5px] sm:text-[11px] font-semibold text-[#003399] leading-[1.15] tracking-tight whitespace-nowrap select-none">
               <span>Co-funded by the</span>
               <span className="font-bold">Erasmus+ Programme</span>
               <span>of the European Union</span>
             </div>
           </div>
+
+          {/* Elegant Divider */}
+          <div className="h-8 sm:h-10 w-[1px] bg-slate-200 flex-shrink-0" />
+
+          {/* Prominent WASTE-UZ Logo */}
+          <Link to="/" className="flex items-center group py-0.5">
+            <img
+              src="/logo.jpg"
+              alt="WASTE-UZ Official Logo"
+              className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition duration-200 group-hover:scale-102"
+            />
+          </Link>
         </div>
 
         {/* DESKTOP NAVIGATION MENU (Single clean horizontal row with whitespace-nowrap) */}
