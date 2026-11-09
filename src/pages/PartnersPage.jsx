@@ -18,7 +18,7 @@ export default function PartnersPage({ t, lang, partners }) {
       {/* Title */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-[#1b6b37] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-[#1b6b37] text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200">
             <Building className="w-3.5 h-3.5" />
             <span>{t.partners.tag}</span>
           </div>
@@ -33,15 +33,15 @@ export default function PartnersPage({ t, lang, partners }) {
 
       {/* Consortium Geographic Nodes Map / Hubs Showcase */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-800">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+        <div className="bg-gradient-to-br from-[#0c2e17] via-slate-900 to-[#0c2e17] text-white rounded-3xl p-6 sm:p-10 shadow-xl border-2 border-emerald-500/40">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-emerald-900/60">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">International Network</span>
               <h2 className="text-xl sm:text-2xl font-black text-white mt-1">
                 Consortium Geographic Hubs
               </h2>
             </div>
-            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300 self-start sm:self-center">
+            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-950 text-emerald-200 border border-emerald-700/60 self-start sm:self-center">
               Uzbekistan • Spain • Türkiye
             </span>
           </div>
@@ -51,10 +51,10 @@ export default function PartnersPage({ t, lang, partners }) {
               <div
                 key={hub.code}
                 onClick={() => setSelectedCity(selectedCity === hub.code ? null : hub.code)}
-                className={`p-4 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
+                className={`p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between ${
                   selectedCity === hub.code
-                    ? 'bg-emerald-950/80 border-emerald-400 text-white shadow-lg'
-                    : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600 hover:text-white'
+                    ? 'bg-emerald-900/90 border-emerald-400 text-white shadow-lg'
+                    : 'bg-slate-800/80 border-emerald-500/30 text-slate-300 hover:border-emerald-400 hover:text-white'
                 }`}
               >
                 <div>
@@ -65,7 +65,7 @@ export default function PartnersPage({ t, lang, partners }) {
                   <div className="font-bold text-sm text-white">{hub.city}</div>
                   <div className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">{hub.role}</div>
                 </div>
-                <div className="mt-3 pt-2 border-t border-slate-700/50 text-[10px] font-mono text-slate-400">
+                <div className="mt-3 pt-2 border-t border-emerald-900/40 text-[10px] font-mono text-emerald-300">
                   {hub.lead}
                 </div>
               </div>
@@ -82,10 +82,10 @@ export default function PartnersPage({ t, lang, partners }) {
             return (
               <div
                 key={partner.id}
-                className={`flex flex-col justify-between bg-white rounded-3xl p-7 border transition duration-200 hover:shadow-lg ${
+                className={`flex flex-col justify-between bg-white rounded-3xl p-7 border-2 transition duration-200 hover:shadow-lg ${
                   isCoord
-                    ? 'border-[#1b6b37] ring-2 ring-[#1b6b37]/15 shadow-md'
-                    : 'border-slate-200 hover:border-slate-300 shadow-xs'
+                    ? 'border-[#1b6b37] ring-2 ring-[#1b6b37]/20 shadow-md'
+                    : 'border-emerald-500/30 hover:border-[#1b6b37] shadow-xs'
                 }`}
               >
                 <div>
@@ -94,9 +94,7 @@ export default function PartnersPage({ t, lang, partners }) {
                       className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold ${
                         isCoord
                           ? 'bg-[#1b6b37] text-white shadow-xs'
-                          : partner.country === 'Uzbekistan'
-                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                          : 'bg-indigo-50 text-indigo-700 border border-indigo-200'
+                          : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                       }`}
                     >
                       {isCoord && <Award className="w-3.5 h-3.5" />}
@@ -112,7 +110,7 @@ export default function PartnersPage({ t, lang, partners }) {
                   </h2>
 
                   <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-4 font-medium">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                    <MapPin className="w-3.5 h-3.5 text-[#1b6b37]" />
                     <span>{partner.city}, {partner.country}</span>
                   </div>
 
@@ -121,9 +119,9 @@ export default function PartnersPage({ t, lang, partners }) {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
-                  <div className="text-xs text-brand-blue-dark font-medium bg-sky-50 px-3.5 py-2 rounded-xl">
-                    <strong className="block text-[11px] text-slate-500 uppercase tracking-wider mb-0.5">
+                <div className="pt-4 border-t border-emerald-100 flex flex-col gap-3">
+                  <div className="text-xs text-emerald-950 font-medium bg-emerald-50/70 border border-emerald-200 p-3 rounded-xl">
+                    <strong className="block text-[11px] text-emerald-800 uppercase tracking-wider mb-0.5">
                       {t.partners.leadPackage}:
                     </strong>
                     <span>{partner.leadWp}</span>
@@ -133,7 +131,7 @@ export default function PartnersPage({ t, lang, partners }) {
                     href={partner.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#1b6b37] py-2.5 px-4 rounded-xl hover:bg-slate-50 transition border border-slate-200"
+                    className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#1b6b37] hover:text-[#15542b] py-2.5 px-4 rounded-xl hover:bg-emerald-50 transition border-2 border-emerald-500/40"
                   >
                     <span>{t.partners.visitSite}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
