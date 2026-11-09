@@ -99,3 +99,4 @@ export default function TendersSection({ t, lang, tenders, onApplyTender }) {
     </section>
   );
 }
+

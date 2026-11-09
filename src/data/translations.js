@@ -6,6 +6,9 @@ export const translations = {
       partners: "Consortium",
       workPackages: "Work Packages",
       virtualLab: "Virtual Lab",
+      timeline: "Roadmap",
+      deliverables: "Deliverables",
+      studentHub: "Student Hub",
       news: "News & Events",
       tenders: "Tenders",
       contact: "Contact",
@@ -73,6 +76,17 @@ export const translations = {
       due: "Due Date",
       type: "Access Level"
     },
+    timeline: {
+      tag: "36-Month Milestones",
+      heading: "Project Operational Roadmap",
+      subheading: "Structured delivery phases from October 2026 to October 2029 across Uzbekistan and European partners.",
+      year1Title: "Year 1 (M1 – M12): Foundation & Methodology",
+      year1Desc: "Field baseline research across Uzbekistan regions, pedagogical framework design by UVIGO, stakeholder identification by BSU.",
+      year2Title: "Year 2 (M13 – M24): Laboratory Setup & Teacher Mobility",
+      year2Desc: "Building Virtual Labs by Gaziantep, 5-day teacher training in Spain (24 educators), 200 student workshops in Uzbekistan.",
+      year3Title: "Year 3 (M25 – M36): Curriculum Integration & Sustainability",
+      year3Desc: "Full accreditation into degree programs, industry policy briefs with municipalities, final scientific conference proceedings."
+    },
     virtualLab: {
       tag: "WP4 Interactive Innovation",
       heading: "Green Innovation Hub & Virtual Laboratory",
@@ -86,13 +100,36 @@ export const translations = {
       runSimBtn: "Run Simulation Testbed",
       simOutputTitle: "Telemetry & Processing Stream"
     },
+    deliverables: {
+      tag: "Outputs & Documentation",
+      heading: "Official Project Deliverables",
+      subheading: "Contractual milestones and public technical summaries produced by the consortium.",
+      filterAll: "All Work Packages",
+      filterPublic: "Public Reports",
+      filterSensitive: "Internal / Evaluator Reports",
+      statusScheduled: "Scheduled",
+      statusInProgress: "In Progress",
+      statusCompleted: "Approved"
+    },
+    studentHub: {
+      tag: "Student Innovation (WP5)",
+      heading: "Green Ideas & Eco-Startup Incubator",
+      subheading: "Are you a student at AKHU, BSU, FSTU, or Green University? Submit your smart recycling, circular economy, or clean-tech idea for mentorship and pilot prototyping support.",
+      submitIdeaBtn: "Submit Innovation Pitch",
+      formTitle: "Student Project Submission",
+      ideaName: "Startup / Innovation Concept Name",
+      category: "Theme (IoT Waste Sorting, Bio-Composting, Recycling Logistics, Clean Energy)",
+      team: "Team Members & University",
+      pitch: "Summary of Solution & Impact",
+      sendPitch: "Submit for WP5 Review"
+    },
     news: {
       tag: "Updates & Announcements",
       heading: "Latest News & Events",
       readMore: "Read Full Article",
       filterAll: "All Categories",
       filterNews: "Project News",
-      filterTenders: "Tenders & Calls",
+      filterTenders: "Tenders & Vacancies",
       filterEvents: "Events & Workshops"
     },
     tenders: {
@@ -131,6 +168,9 @@ export const translations = {
       partners: "Hamkorlar",
       workPackages: "Ish paketlari",
       virtualLab: "Virtual laboratoriya",
+      timeline: "Yo'l xaritasi",
+      deliverables: "Natijalar",
+      studentHub: "Talabalar xabi",
       news: "Yangiliklar",
       tenders: "Tenderlar",
       contact: "Bog'lanish",
@@ -161,7 +201,7 @@ export const translations = {
       heading: "O'zbekistonda yashil kelajak va zamonaviy kompetensiyalar",
       summary: "WASTE-UZ talabalarda raqamli texnologiyalar, ma'lumotlar tahlili va amaliy tajriba orqali aqlli chiqindi boshqaruvi kompetensiyalarini shakllantiradi va ekologik startaplarni qo'llab-quvvatlaydi.",
       coordinatorHeading: "Loyihani boshqarish",
-      coordinatorDesc: "Al-Xorazmiy universiteti (AKHU, Urganch) yetakchiligida O'zbekiston, Ispaniya va Turkiyaning 5 ta nufuzli universiteti bilan hamkorlikda amalga oshiriladi.",
+      coordinatorDesc: "Al-Xorazmiy universiteti (AKHU, Urgench) yetakchiligida O'zbekiston, Ispaniya va Turkiyaning 5 ta nufuzli universiteti bilan hamkorlikda amalga oshiriladi.",
       keyObjectivesHeading: "Strategik yo'nalishlar",
       pillar1Title: "Zamonaviy o'quv dasturlari va ECTS",
       pillar1Desc: "Raqamli chiqindi monitoringi va ekologik iqtisodiyot bo'yicha akkreditatsiyalangan qisqa kurslarni joriy etish.",
@@ -198,6 +238,17 @@ export const translations = {
       due: "Muddati",
       type: "Kirish darajasi"
     },
+    timeline: {
+      tag: "36 oylik bosqichlar",
+      heading: "Loyiha yo'l xaritasi",
+      subheading: "2026-yil oktyabrdan 2029-yil oktyabrgacha barcha bosqichlar va asosiy marralar.",
+      year1Title: "1-yil (M1 – M12): Poydevor va metodologiya",
+      year1Desc: "O'zbekiston hududlarida amaldagi chiqindi boshqaruvi bo'yicha dastlabki tadqiqotlar, Vigo universiteti tomonidan metodik qo'llanma ishlab chiqilishi.",
+      year2Title: "2-yil (M13 – M24): Laboratoriyalar va Ispaniya stajirovkasi",
+      year2Desc: "Gaziantep universiteti bilan Virtual laboratoriyani ishga tushirish, Ispaniyada 24 nafar o'qituvchi malakasini oshirish, 200 talaba uchun treninglar.",
+      year3Title: "3-yil (M25 – M36): O'quv dasturiga kiritish va barqarorlik",
+      year3Desc: "Universitetlar o'quv dasturlariga rasmiy integratsiya qilish, hokimliklarga qonunchilik takliflarini taqdim etish, yakuniy ilmiy konferensiya."
+    },
     virtualLab: {
       tag: "WP4 Innovatsiyasi",
       heading: "Yashil innovatsiyalar markazi va Virtual laboratoriya",
@@ -210,6 +261,29 @@ export const translations = {
       recoveryPotential: "Iqtisodiy aylanma daromad",
       runSimBtn: "Simulyatsiyani ishga tushirish",
       simOutputTitle: "Telemetriya va qayta ishlash ko'rsatkichlari"
+    },
+    deliverables: {
+      tag: "Hisobotlar va natijalar",
+      heading: "Rasmiy loyiha natijalari (Deliverables)",
+      subheading: "Konsorsium tomonidan taqdim etiladigan shartnomaviy hisobotlar va ommaviy ilmiy hujjatlar.",
+      filterAll: "Barcha ish paketlari",
+      filterPublic: "Ochiq hisobotlar",
+      filterSensitive: "Ichki / Baholovchi hisobotlari",
+      statusScheduled: "Rejalashtirilgan",
+      statusInProgress: "Jarayonda",
+      statusCompleted: "Tasdiqlangan"
+    },
+    studentHub: {
+      tag: "Talabalar innovatsiyasi (WP5)",
+      heading: "Yashil g'oyalar va Eko-startaplar akseleratori",
+      subheading: "AKHU, BDU, FarDU yoki Yashil universitet talabasisiz? Aqlli qayta ishlash, aylanma iqtisodiyot yoki toza texnologiyalar bo'yicha g'oyangizni taqdim eting va grant dasturida ishtirok eting.",
+      submitIdeaBtn: "G'oyani yuborish",
+      formTitle: "Talabalar loyihasini topshirish",
+      ideaName: "Startap yoki innovatsion g'oya nomi",
+      category: "Yo'nalish (IoT chiqindi saralash, biokompost, qayta ishlash logistikasi)",
+      team: "Jamoa a'zolari va universitet",
+      pitch: "Yechim tavsifi va kutilayotgan samara",
+      sendPitch: "WP5 ko'rib chiqishiga yuborish"
     },
     news: {
       tag: "Yangiliklar va tadbirlar",
@@ -242,7 +316,7 @@ export const translations = {
       sendBtn: "Xabarni yuborish",
       successMsg: "Rahmat! Xabaringiz WASTE-UZ koordinatsiya idorasiga yetkazildi.",
       addressTitle: "Loyiha kotibiyati",
-      addressText: "Al-Xorazmiy universiteti (AKHU), Urganch, Xorazm, O'zbekiston",
+      addressText: "Al-Xorazmiy universiteti (AKHU), Urgench, Xorazm, O'zbekiston",
       emailTitle: "Rasmiy elektron pochta",
       emailText: "contact@wasteuz.uz / info@akhu.uz",
       domainTitle: "Veb-manzil",

@@ -194,3 +194,4 @@ export default function WorkPackagesSection({ t, lang, workPackages }) {
     </section>
   );
 }
+

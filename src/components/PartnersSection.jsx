@@ -93,3 +93,4 @@ export default function PartnersSection({ t, lang, partners }) {
     </section>
   );
 }
+

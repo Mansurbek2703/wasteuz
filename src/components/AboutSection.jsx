@@ -150,3 +150,4 @@ export default function AboutSection({ t, lang, info }) {
     </section>
   );
 }
+

@@ -105,3 +105,4 @@ export default function NewsSection({ t, lang, news, onSelectArticle }) {
     </section>
   );
 }
+

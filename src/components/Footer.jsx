@@ -1,28 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer({ t, lang, partners }) {
   return (
-    <footer className="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-900">
+    <footer className="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-900 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
-          {/* Logo & EU Emblem */}
+          {/* Logo & Info */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3.5 group">
               <img
                 src="/logo.jpg"
                 alt="WASTE-UZ"
-                className="h-12 w-auto object-contain rounded-md bg-white p-1"
+                className="h-16 w-auto object-contain rounded-lg bg-white p-1"
               />
               <div>
-                <span className="font-black text-xl text-white tracking-tight">
+                <span className="font-black text-2xl text-white tracking-tight">
                   WASTE<span className="text-emerald-400">UZ</span>
                 </span>
-                <span className="block text-xs text-slate-400">
-                  Project 101322962 — Erasmus+ CBHE
+                <span className="block text-xs text-slate-400 font-mono">
+                  Erasmus+ Project 101322962
                 </span>
               </div>
-            </div>
+            </Link>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md">
               Waste Awareness Skills Training & Education — Uzbekistan. Fostering smart waste management competencies, circular economy skills, and student innovation across Uzbekistan and Europe.
@@ -30,7 +30,7 @@ export default function Footer({ t, lang, partners }) {
 
             {/* EU Co-funded Flag Box */}
             <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 max-w-sm">
-              <div className="w-10 h-7 bg-[#003399] rounded-[2px] flex items-center justify-center relative overflow-hidden flex-shrink-0">
+              <div className="w-10 h-7 bg-[#003399] rounded-xs flex items-center justify-center relative overflow-hidden flex-shrink-0">
                 <span className="text-xs text-yellow-300 font-bold leading-none">★</span>
               </div>
               <div className="text-[11px] leading-tight">
@@ -45,15 +45,16 @@ export default function Footer({ t, lang, partners }) {
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
               Navigation
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm">
-              <li><a href="#home" className="hover:text-white transition">{t.nav.home}</a></li>
-              <li><a href="#about" className="hover:text-white transition">{t.nav.about}</a></li>
-              <li><a href="#partners" className="hover:text-white transition">{t.nav.partners}</a></li>
-              <li><a href="#work-packages" className="hover:text-white transition">{t.nav.workPackages}</a></li>
-              <li><a href="#virtual-lab" className="hover:text-emerald-400 text-emerald-500 font-semibold transition">{t.nav.virtualLab}</a></li>
-              <li><a href="#news" className="hover:text-white transition">{t.nav.news}</a></li>
-              <li><a href="#tenders" className="hover:text-white transition">{t.nav.tenders}</a></li>
-              <li><a href="#contact" className="hover:text-white transition">{t.nav.contact}</a></li>
+            <ul className="space-y-2 text-xs sm:text-sm font-medium">
+              <li><Link to="/" className="hover:text-white transition">{t.nav.home}</Link></li>
+              <li><Link to="/about" className="hover:text-white transition">{t.nav.about}</Link></li>
+              <li><Link to="/partners" className="hover:text-white transition">{t.nav.partners}</Link></li>
+              <li><Link to="/activities" className="hover:text-white transition">{t.nav.workPackages}</Link></li>
+              <li><Link to="/virtual-lab" className="hover:text-emerald-400 text-emerald-500 font-semibold transition">{t.nav.virtualLab}</Link></li>
+              <li><Link to="/news" className="hover:text-white transition">{t.nav.news}</Link></li>
+              <li><Link to="/tenders" className="hover:text-white transition">{t.nav.tenders}</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition">{t.nav.contact}</Link></li>
+              <li><Link to="/admin" className="text-sky-400 hover:underline">{t.nav.admin} Panel</Link></li>
             </ul>
           </div>
 
@@ -69,7 +70,7 @@ export default function Footer({ t, lang, partners }) {
                     href={p.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-brand-blue-light transition truncate max-w-xs"
+                    className="hover:text-sky-300 transition truncate max-w-xs"
                   >
                     <span className="font-mono text-slate-300 font-semibold mr-1.5">[{p.shortName}]</span>
                     <span>{p.legalName}</span>

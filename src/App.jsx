@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AboutSection from './components/AboutSection';
-import PartnersSection from './components/PartnersSection';
-import WorkPackagesSection from './components/WorkPackagesSection';
-import VirtualLabSection from './components/VirtualLabSection';
-import NewsSection from './components/NewsSection';
-import TendersSection from './components/TendersSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import ArticleModal from './components/ArticleModal';
-import AdminModal from './components/AdminModal';
+import ScrollToTop from './components/ScrollToTop';
+
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import PartnersPage from './pages/PartnersPage';
+import ActivitiesPage from './pages/ActivitiesPage';
+import VirtualLabPage from './pages/VirtualLabPage';
+import NewsPage from './pages/NewsPage';
+import NewsDetailPage from './pages/NewsDetailPage';
+import TendersPage from './pages/TendersPage';
+import TenderDetailPage from './pages/TenderDetailPage';
+import ContactPage from './pages/ContactPage';
+import AdminPage from './pages/AdminPage';
+
 import { translations } from './data/translations';
 
 export default function App() {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('uz'); // Default to Uzbek or English
   const [info, setInfo] = useState(null);
   const [partners, setPartners] = useState([]);
   const [workPackages, setWorkPackages] = useState([]);
   const [news, setNews] = useState([]);
   const [tenders, setTenders] = useState([]);
-  const [selectedArticle, setSelectedArticle] = useState(null);
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
 
-  const t = translations[lang] || translations.en;
+  const t = translations[lang] || translations.uz;
 
   const loadAllData = async () => {
     try {
@@ -50,55 +53,82 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased selection:bg-brand-blue selection:text-white">
-      {/* Top Navbar */}
-      <Navbar
-        lang={lang}
-        setLang={setLang}
-        t={t}
-        onOpenAdmin={() => setIsAdminOpen(true)}
-      />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased selection:bg-brand-blue selection:text-white">
+        <Navbar lang={lang} setLang={setLang} t={t} />
 
-      {/* Main Sections */}
-      <main className="flex-1">
-        <Hero t={t} lang={lang} />
-        <AboutSection t={t} lang={lang} info={info} />
-        <PartnersSection t={t} lang={lang} partners={partners} />
-        <WorkPackagesSection t={t} lang={lang} workPackages={workPackages} />
-        <VirtualLabSection t={t} lang={lang} />
-        <NewsSection
-          t={t}
-          lang={lang}
-          news={news}
-          onSelectArticle={(art) => setSelectedArticle(art)}
-        />
-        <TendersSection
-          t={t}
-          lang={lang}
-          tenders={tenders}
-          onApplyTender={() => {
-            const el = document.getElementById('contact');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-        />
-        <ContactSection t={t} lang={lang} />
-      </main>
+        <main className="flex-1">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  t={t}
+                  lang={lang}
+                  info={info}
+                  partners={partners}
+                  workPackages={workPackages}
+                  news={news}
+                  tenders={tenders}
+                />
+              }
+            />
+            <Route
+              path="/about"
+              element={<AboutPage t={t} lang={lang} info={info} />}
+            />
+            <Route
+              path="/partners"
+              element={<PartnersPage t={t} lang={lang} partners={partners} />}
+            />
+            <Route
+              path="/activities"
+              element={<ActivitiesPage t={t} lang={lang} workPackages={workPackages} />}
+            />
+            <Route
+              path="/virtual-lab"
+              element={<VirtualLabPage t={t} lang={lang} />}
+            />
+            <Route
+              path="/news"
+              element={<NewsPage t={t} lang={lang} news={news} />}
+            />
+            <Route
+              path="/news/:slug"
+              element={<NewsDetailPage news={news} lang={lang} />}
+            />
+            <Route
+              path="/tenders"
+              element={<TendersPage t={t} lang={lang} tenders={tenders} />}
+            />
+            <Route
+              path="/tenders/:slug"
+              element={<TenderDetailPage tenders={tenders} lang={lang} t={t} />}
+            />
+            <Route
+              path="/contact"
+              element={<ContactPage t={t} lang={lang} />}
+            />
+            <Route
+              path="/admin"
+              element={
+                <AdminPage
+                  info={info}
+                  partners={partners}
+                  workPackages={workPackages}
+                  news={news}
+                  tenders={tenders}
+                  onRefreshData={loadAllData}
+                />
+              }
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-      {/* Footer */}
-      <Footer t={t} lang={lang} partners={partners} />
-
-      {/* Modals */}
-      <ArticleModal
-        article={selectedArticle}
-        onClose={() => setSelectedArticle(null)}
-        lang={lang}
-      />
-
-      <AdminModal
-        isOpen={isAdminOpen}
-        onClose={() => setIsAdminOpen(false)}
-        onRefreshData={loadAllData}
-      />
-    </div>
+        <Footer t={t} lang={lang} partners={partners} />
+      </div>
+    </BrowserRouter>
   );
 }

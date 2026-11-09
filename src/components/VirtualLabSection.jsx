@@ -245,3 +245,4 @@ export default function VirtualLabSection({ t, lang }) {
     </section>
   );
 }
+
