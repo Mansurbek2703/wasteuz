@@ -11,6 +11,7 @@ import ActivitiesPage from './pages/ActivitiesPage';
 import VirtualLabPage from './pages/VirtualLabPage';
 import NewsPage from './pages/NewsPage';
 import NewsDetailPage from './pages/NewsDetailPage';
+import EventsPage from './pages/EventsPage';
 import TendersPage from './pages/TendersPage';
 import TenderDetailPage from './pages/TenderDetailPage';
 import ContactPage from './pages/ContactPage';
@@ -20,14 +21,14 @@ import AdminPage from './pages/AdminPage';
 import { translations } from './data/translations';
 
 export default function App() {
-  const [lang, setLang] = useState('uz');
+  const [lang, setLang] = useState('en'); // Default is English as requested
   const [info, setInfo] = useState(null);
   const [partners, setPartners] = useState([]);
   const [workPackages, setWorkPackages] = useState([]);
   const [news, setNews] = useState([]);
   const [tenders, setTenders] = useState([]);
 
-  const t = translations[lang] || translations.uz;
+  const t = translations[lang] || translations.en;
 
   const loadAllData = async () => {
     try {
@@ -98,6 +99,10 @@ export default function App() {
             <Route
               path="/news/:slug"
               element={<NewsDetailPage news={news} lang={lang} />}
+            />
+            <Route
+              path="/events"
+              element={<EventsPage t={t} lang={lang} />}
             />
             <Route
               path="/tenders"

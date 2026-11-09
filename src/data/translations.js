@@ -2,7 +2,7 @@ export const translations = {
   en: {
     nav: {
       home: "Home",
-      about: "About WASTE-UZ",
+      about: "About",
       aboutProject: "About the Project",
       objectives: "Objectives & Goals",
       passport: "Project Passport",
@@ -137,13 +137,13 @@ export const translations = {
   uz: {
     nav: {
       home: "Bosh sahifa",
-      about: "WASTE-UZ haqida",
+      about: "Loyiha haqida",
       aboutProject: "Loyiha haqida",
       objectives: "Maqsad va vazifalar",
       passport: "Loyiha pasporti",
       partners: "Hamkorlar",
       workPackages: "Faoliyatlar",
-      virtualLab: "Virtual laboratoriya",
+      virtualLab: "Virtual Lab",
       news: "Yangiliklar",
       events: "Tadbirlar",
       tenders: "Tenderlar",
