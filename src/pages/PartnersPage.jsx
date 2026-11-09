@@ -1,12 +1,24 @@
-import React from 'react';
-import { Building, MapPin, ExternalLink, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { Building, MapPin, ExternalLink, Award, Globe, Compass } from 'lucide-react';
 
 export default function PartnersPage({ t, lang, partners }) {
+  const [selectedCity, setSelectedCity] = useState(null);
+
+  const consortiumHubs = [
+    { city: 'Urgench', code: 'AKHU', name: 'Al-Khwarizmi University', role: 'Project Coordinator', lead: 'WP1 Lead', country: 'Uzbekistan', coords: '41.55° N, 60.63° E' },
+    { city: 'Vigo', code: 'UVIGO', name: 'Universidad de Vigo', role: 'EU Partner (Spain)', lead: 'WP2 Lead', country: 'Spain', coords: '42.24° N, 8.72° W' },
+    { city: 'Gaziantep', code: 'GANTEP', name: 'Gaziantep Universitesi', role: 'Programme Partner (Türkiye)', lead: 'WP4 Lead', country: 'Türkiye', coords: '37.06° N, 37.38° E' },
+    { city: 'Bukhara', code: 'BSU', name: 'Bukhara State University', role: 'Partner University', lead: 'WP6 Lead', country: 'Uzbekistan', coords: '39.77° N, 64.42° E' },
+    { city: 'Tashkent', code: 'GREEN', name: 'Central Asian Green University', role: 'Partner University', lead: 'WP5 Lead', country: 'Uzbekistan', coords: '41.31° N, 69.24° E' },
+    { city: 'Fergana', code: 'FSTU', name: 'Fergana State Technical University', role: 'Partner University', lead: 'WP3 Lead', country: 'Uzbekistan', coords: '40.38° N, 71.78° E' }
+  ];
+
   return (
     <div className="py-12 sm:py-16 space-y-12">
+      {/* Title */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-[#1b6b37] text-xs font-bold uppercase tracking-wider mb-3">
             <Building className="w-3.5 h-3.5" />
             <span>{t.partners.tag}</span>
           </div>
@@ -19,6 +31,50 @@ export default function PartnersPage({ t, lang, partners }) {
         </div>
       </div>
 
+      {/* Consortium Geographic Nodes Map / Hubs Showcase */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">International Network</span>
+              <h2 className="text-xl sm:text-2xl font-black text-white mt-1">
+                Consortium Geographic Hubs
+              </h2>
+            </div>
+            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300 self-start sm:self-center">
+              Uzbekistan • Spain • Türkiye
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 pt-6">
+            {consortiumHubs.map((hub) => (
+              <div
+                key={hub.code}
+                onClick={() => setSelectedCity(selectedCity === hub.code ? null : hub.code)}
+                className={`p-4 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
+                  selectedCity === hub.code
+                    ? 'bg-emerald-950/80 border-emerald-400 text-white shadow-lg'
+                    : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600 hover:text-white'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="font-mono text-xs font-bold text-emerald-400">{hub.code}</span>
+                    <span className="text-[10px] text-slate-400 font-medium">{hub.country}</span>
+                  </div>
+                  <div className="font-bold text-sm text-white">{hub.city}</div>
+                  <div className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">{hub.role}</div>
+                </div>
+                <div className="mt-3 pt-2 border-t border-slate-700/50 text-[10px] font-mono text-slate-400">
+                  {hub.lead}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Detailed Partner Cards Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {partners.map((partner) => {
@@ -28,7 +84,7 @@ export default function PartnersPage({ t, lang, partners }) {
                 key={partner.id}
                 className={`flex flex-col justify-between bg-white rounded-3xl p-7 border transition duration-200 hover:shadow-lg ${
                   isCoord
-                    ? 'border-brand-blue ring-2 ring-brand-blue/15 shadow-md'
+                    ? 'border-[#1b6b37] ring-2 ring-[#1b6b37]/15 shadow-md'
                     : 'border-slate-200 hover:border-slate-300 shadow-xs'
                 }`}
               >
@@ -37,7 +93,7 @@ export default function PartnersPage({ t, lang, partners }) {
                     <span
                       className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold ${
                         isCoord
-                          ? 'bg-brand-blue text-white shadow-xs'
+                          ? 'bg-[#1b6b37] text-white shadow-xs'
                           : partner.country === 'Uzbekistan'
                           ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                           : 'bg-indigo-50 text-indigo-700 border border-indigo-200'
@@ -77,7 +133,7 @@ export default function PartnersPage({ t, lang, partners }) {
                     href={partner.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-700 hover:text-brand-blue py-2.5 px-4 rounded-xl hover:bg-slate-50 transition border border-slate-200"
+                    className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#1b6b37] py-2.5 px-4 rounded-xl hover:bg-slate-50 transition border border-slate-200"
                   >
                     <span>{t.partners.visitSite}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -91,4 +147,3 @@ export default function PartnersPage({ t, lang, partners }) {
     </div>
   );
 }
-
