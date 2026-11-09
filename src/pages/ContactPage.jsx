@@ -61,7 +61,9 @@ export default function ContactPage({ t, lang }) {
           <div className="lg:col-span-5 bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl space-y-8">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-yellow-400">Project Leadership</span>
-              <h2 className="text-2xl font-black text-white mt-1">Al-Xorazmiy University</h2>
+              <h2 className="text-2xl font-black text-white mt-1">
+                {lang === 'uz' ? "Al-Xorazmiy universiteti" : "Al-Khwarizmi University"}
+              </h2>
               <p className="text-sm text-slate-400 mt-2">
                 Lead Coordinator of Erasmus+ Project 101322962 (WASTE-UZ)
               </p>

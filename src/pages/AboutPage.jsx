@@ -118,7 +118,7 @@ export default function AboutPage({ t, lang, info }) {
               </div>
               <div className="flex justify-between py-1 border-b border-slate-800/80">
                 <span className="text-slate-400">Coordinator</span>
-                <span className="text-sky-300 font-bold">Al-Xorazmiy University (AKHU)</span>
+                <span className="text-sky-300 font-bold">Al-Khwarizmi University (AKHU)</span>
               </div>
               <div className="flex justify-between py-1 border-b border-slate-800/80">
                 <span className="text-slate-400">Consortium</span>

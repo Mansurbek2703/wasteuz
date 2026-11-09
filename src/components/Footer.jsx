@@ -97,7 +97,7 @@ export default function Footer({ t, lang, partners }) {
               © 2026 WASTE-UZ Project Consortium (Grant Agreement 101322962). All rights reserved.
             </div>
             <div>
-              Al-Xorazmiy University • Urgench, Uzbekistan • <span className="font-mono text-slate-400">wasteuz.uz</span>
+              Al-Khwarizmi University • Urgench, Uzbekistan • <span className="font-mono text-slate-400">wasteuz.uz</span>
             </div>
           </div>
         </div>

@@ -125,7 +125,7 @@ export default function AboutSection({ t, lang, info }) {
               </div>
               <div className="flex justify-between py-1.5 border-b border-slate-800/80">
                 <span className="text-slate-400">Coordinator</span>
-                <span className="text-right text-sky-400 font-semibold">Al-Xorazmiy Univ. (AKHU)</span>
+                <span className="text-right text-sky-400 font-semibold">Al-Khwarizmi Univ. (AKHU)</span>
               </div>
               <div className="flex justify-between py-1.5 border-b border-slate-800/80">
                 <span className="text-slate-400">Consortium</span>
