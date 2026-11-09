@@ -37,7 +37,7 @@ export default function LoginPage({ onLoginSuccess }) {
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl space-y-6">
+      <div className="max-w-md w-full bg-white rounded-3xl p-8 sm:p-10 border-2 border-emerald-500/30 shadow-xl space-y-6">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-[#1b6b37] transition"
@@ -47,7 +47,7 @@ export default function LoginPage({ onLoginSuccess }) {
         </Link>
 
         <div className="text-center space-y-2">
-          <div className="w-14 h-14 bg-emerald-50 text-[#1b6b37] rounded-2xl flex items-center justify-center mx-auto border border-emerald-100">
+          <div className="w-14 h-14 bg-emerald-50 text-[#1b6b37] rounded-2xl flex items-center justify-center mx-auto border-2 border-emerald-200">
             <Lock className="w-7 h-7" />
           </div>
           <h1 className="text-2xl font-black text-slate-900 tracking-tight">Tizimga kirish</h1>
@@ -72,7 +72,7 @@ export default function LoginPage({ onLoginSuccess }) {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Login kiriting..."
-              className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#1b6b37]"
+              className="w-full px-4 py-3 rounded-xl border-2 border-emerald-500/25 focus:outline-hidden focus:ring-2 focus:ring-[#1b6b37] focus:border-[#1b6b37]"
             />
           </div>
 
@@ -84,25 +84,24 @@ export default function LoginPage({ onLoginSuccess }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••••••"
-              className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#1b6b37]"
+              className="w-full px-4 py-3 rounded-xl border-2 border-emerald-500/25 focus:outline-hidden focus:ring-2 focus:ring-[#1b6b37] focus:border-[#1b6b37]"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 rounded-full bg-[#1b6b37] hover:bg-[#15542b] text-white font-bold transition shadow-md flex items-center justify-center gap-2 disabled:opacity-50"
+            className="w-full py-3.5 rounded-full bg-[#1b6b37] hover:bg-[#15542b] text-white font-bold transition shadow-md flex items-center justify-center gap-2 disabled:opacity-50 border-2 border-emerald-700"
           >
             <LogIn className="w-4 h-4" />
             <span>{loading ? 'Tekshirilmoqda...' : 'Kirish'}</span>
           </button>
         </form>
 
-        <div className="pt-4 border-t border-slate-100 text-center text-xs text-slate-400">
+        <div className="pt-4 border-t border-emerald-100 text-center text-xs text-slate-400">
           WASTE-UZ • Erasmus+ Project 101322962 • EACEA
         </div>
       </div>
     </div>
   );
 }
-

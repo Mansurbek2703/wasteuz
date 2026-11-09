@@ -20,43 +20,49 @@ import {
 export default function HomePage({ t, lang, info, partners, workPackages, news, tenders }) {
   return (
     <div className="space-y-16 sm:space-y-24 pb-16">
-      {/* Hero Section with Official Artwork Background */}
-      <section 
-        className="relative overflow-hidden pt-12 pb-16 lg:pt-16 lg:pb-24 border-b-2 border-emerald-600/30 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
-      >
-        {/* Soft, crisp white/emerald glass gradient overlay for readability while keeping the image artwork visible */}
-        <div className="absolute inset-0 bg-white/80 backdrop-blur-[1px] bg-gradient-to-b from-white/92 via-white/75 to-white/95" />
+      {/* Hero Section with Dark Tinted Glass Window Effect (Yomg'irdan keyingi tiniq, qoramtir shisha effekti) */}
+      <section className="relative overflow-hidden pt-12 pb-20 lg:pt-18 lg:pb-28 border-b-2 border-emerald-600/40 bg-slate-950">
+        {/* Background Image Layer with rich rain-washed contrast and saturation */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.02] transform transition-transform duration-1000 filter brightness-[0.88] contrast-[1.18] saturate-[1.28]"
+          style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+        />
+
+        {/* Dark Tinted Glass Window Overlay (xuddi uy ichidan qoraytirilgan derazadan qaraganda ko'rinadigan qoramtir shisha effekti) */}
+        <div className="absolute inset-0 glass-window-tint backdrop-blur-[2px]" />
+
+        {/* Subtle glass reflection sheen across the window */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 via-transparent to-white/10 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-8">
           <div className="text-center max-w-4xl mx-auto space-y-6">
             {/* Grant Call Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-xs border-2 border-emerald-500/40 text-xs sm:text-sm font-semibold text-slate-700">
-              <span className="flex h-2.5 w-2.5 rounded-full bg-[#1b6b37] animate-ping" />
-              <Award className="w-4 h-4 text-[#1b6b37]" />
-              <span className="text-[#1b6b37] font-bold">{t.hero.badge}</span>
-              <span className="hidden sm:inline text-emerald-200">|</span>
-              <span className="hidden sm:inline font-mono text-emerald-800 text-xs font-bold">ERASMUS-EDU-2026-CBHE</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md shadow-lg border border-emerald-400/50 text-xs sm:text-sm font-semibold text-emerald-300">
+              <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-ping" />
+              <Award className="w-4 h-4 text-emerald-400" />
+              <span className="text-emerald-300 font-bold">{t.hero.badge}</span>
+              <span className="hidden sm:inline text-emerald-600">|</span>
+              <span className="hidden sm:inline font-mono text-emerald-400 text-xs font-bold">ERASMUS-EDU-2026-CBHE</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15] drop-shadow-xl">
               {t.hero.title}
-              <span className="block mt-2 bg-gradient-to-r from-[#1b6b37] via-emerald-600 to-[#1b6b37] bg-clip-text text-transparent">
+              <span className="block mt-2 bg-gradient-to-r from-emerald-400 via-green-300 to-teal-300 bg-clip-text text-transparent">
                 WASTE-UZBEKISTAN
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-emerald-100/90 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md">
               {t.hero.subTitle}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-3">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1b6b37] hover:bg-[#15542b] text-white font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 border-2 border-emerald-700"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1b6b37] hover:bg-[#14532b] text-white font-bold text-sm shadow-xl shadow-black/40 transition transform hover:-translate-y-0.5 border-2 border-emerald-400"
               >
                 <span>{t.hero.exploreBtn}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -64,15 +70,15 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
 
               <Link
                 to="/activities"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/95 border-2 border-[#1b6b37] text-[#1b6b37] font-bold text-sm shadow-xs hover:bg-emerald-50 transition"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-900/80 backdrop-blur-md hover:bg-slate-800 text-white border-2 border-emerald-400/60 font-bold text-sm shadow-lg shadow-black/30 transition transform hover:-translate-y-0.5"
               >
-                <Layers className="w-4 h-4 text-[#1b6b37]" />
+                <Layers className="w-4 h-4 text-emerald-400" />
                 <span>{t.hero.workPackagesBtn}</span>
               </Link>
 
               <Link
                 to="/virtual-lab"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 border-2 border-emerald-500"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-xl shadow-black/40 transition transform hover:-translate-y-0.5 border-2 border-emerald-300"
               >
                 <Cpu className="w-4 h-4" />
                 <span>{t.hero.virtualLabBtn}</span>
@@ -80,51 +86,51 @@ export default function HomePage({ t, lang, info, partners, workPackages, news, 
             </div>
           </div>
 
-          {/* Key Metric Cards with Green Borders */}
+          {/* Key Metric Cards (Tinted Glass Cards) */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 mt-12 max-w-6xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-xs p-5 rounded-2xl border-2 border-emerald-500/35 shadow-xs hover:border-[#1b6b37] hover:shadow-md transition">
-              <div className="flex items-center gap-2 text-[#1b6b37] mb-2">
+            <div className="glass-card-dark p-5 rounded-2xl transition transform hover:-translate-y-1">
+              <div className="flex items-center gap-2 text-emerald-400 mb-2">
                 <Users className="w-5 h-5" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">Consortium</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Consortium</span>
               </div>
-              <div className="text-3xl font-black text-slate-900">6</div>
-              <div className="text-xs text-slate-600 mt-1 font-medium">{t.hero.statPartners}</div>
+              <div className="text-3xl font-black text-white">6</div>
+              <div className="text-xs text-slate-300 mt-1 font-medium">{t.hero.statPartners}</div>
             </div>
 
-            <div className="bg-white/95 backdrop-blur-xs p-5 rounded-2xl border-2 border-emerald-500/35 shadow-xs hover:border-[#1b6b37] hover:shadow-md transition">
-              <div className="flex items-center gap-2 text-[#1b6b37] mb-2">
+            <div className="glass-card-dark p-5 rounded-2xl transition transform hover:-translate-y-1">
+              <div className="flex items-center gap-2 text-emerald-400 mb-2">
                 <Calendar className="w-5 h-5" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">Duration</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Duration</span>
               </div>
-              <div className="text-3xl font-black text-slate-900">36</div>
-              <div className="text-xs text-slate-600 mt-1 font-medium">{t.hero.statDuration} (2026-2029)</div>
+              <div className="text-3xl font-black text-white">36</div>
+              <div className="text-xs text-slate-300 mt-1 font-medium">{t.hero.statDuration} (2026-2029)</div>
             </div>
 
-            <div className="bg-white/95 backdrop-blur-xs p-5 rounded-2xl border-2 border-emerald-500/35 shadow-xs hover:border-[#1b6b37] hover:shadow-md transition">
-              <div className="flex items-center gap-2 text-[#1b6b37] mb-2">
+            <div className="glass-card-dark p-5 rounded-2xl transition transform hover:-translate-y-1">
+              <div className="flex items-center gap-2 text-emerald-400 mb-2">
                 <Layers className="w-5 h-5" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">Packages</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Packages</span>
               </div>
-              <div className="text-3xl font-black text-slate-900">6 WPs</div>
-              <div className="text-xs text-slate-600 mt-1 font-medium">{t.hero.statWPs}</div>
+              <div className="text-3xl font-black text-white">6 WPs</div>
+              <div className="text-xs text-slate-300 mt-1 font-medium">{t.hero.statWPs}</div>
             </div>
 
-            <div className="bg-white/95 backdrop-blur-xs p-5 rounded-2xl border-2 border-emerald-500/35 shadow-xs hover:border-[#1b6b37] hover:shadow-md transition">
-              <div className="flex items-center gap-2 text-[#1b6b37] mb-2">
+            <div className="glass-card-dark p-5 rounded-2xl transition transform hover:-translate-y-1">
+              <div className="flex items-center gap-2 text-emerald-400 mb-2">
                 <Clock className="w-5 h-5" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">Effort</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Effort</span>
               </div>
-              <div className="text-3xl font-black text-slate-900">122</div>
-              <div className="text-xs text-slate-600 mt-1 font-medium">{t.hero.statEffort}</div>
+              <div className="text-3xl font-black text-white">122</div>
+              <div className="text-xs text-slate-300 mt-1 font-medium">{t.hero.statEffort}</div>
             </div>
 
-            <div className="col-span-2 md:col-span-1 bg-white/95 backdrop-blur-xs p-5 rounded-2xl border-2 border-emerald-500/35 shadow-xs hover:border-[#1b6b37] hover:shadow-md transition">
-              <div className="flex items-center gap-2 text-[#1b6b37] mb-2">
+            <div className="col-span-2 md:col-span-1 glass-card-dark p-5 rounded-2xl transition transform hover:-translate-y-1">
+              <div className="flex items-center gap-2 text-emerald-400 mb-2">
                 <GraduationCap className="w-5 h-5" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">Target</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Target</span>
               </div>
-              <div className="text-2xl sm:text-3xl font-black text-slate-900">500+</div>
-              <div className="text-xs text-slate-600 mt-1 font-medium">{t.hero.statParticipants}</div>
+              <div className="text-2xl sm:text-3xl font-black text-white">500+</div>
+              <div className="text-xs text-slate-300 mt-1 font-medium">{t.hero.statParticipants}</div>
             </div>
           </div>
         </div>
